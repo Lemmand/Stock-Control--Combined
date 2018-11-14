@@ -1,0 +1,27 @@
+C:\Users\Andrew\source\repos\Stock Control\Stock Control\bin\Debug\Stock Control.exe.config
+C:\Users\Andrew\source\repos\Stock Control\Stock Control\bin\Debug\Stock Control.exe
+C:\Users\Andrew\source\repos\Stock Control\Stock Control\bin\Debug\Stock Control.pdb
+C:\Users\Andrew\source\repos\Stock Control\Stock Control\obj\Debug\Stock Control.csprojAssemblyReference.cache
+C:\Users\Andrew\source\repos\Stock Control\Stock Control\obj\Debug\Stock_Control.Form1.resources
+C:\Users\Andrew\source\repos\Stock Control\Stock Control\obj\Debug\Stock_Control.Properties.Resources.resources
+C:\Users\Andrew\source\repos\Stock Control\Stock Control\obj\Debug\Stock Control.csproj.GenerateResource.cache
+C:\Users\Andrew\source\repos\Stock Control\Stock Control\obj\Debug\Stock Control.csproj.CoreCompileInputs.cache
+C:\Users\Andrew\source\repos\Stock Control\Stock Control\obj\Debug\Stock Control.exe
+C:\Users\Andrew\source\repos\Stock Control\Stock Control\obj\Debug\Stock Control.pdb
+C:\Users\Andrew\source\repos\Stock Control\Stock Control\obj\Debug\Stock_Control.MainMenu.resources
+C:\Users\Andrew\source\repos\Stock Control\Stock Control\obj\Debug\Stock_Control.AddItem.resources
+C:\Users\Andrew\source\repos\Stock Control\Stock Control\obj\Debug\Stock_Control.Search.resources
+C:\Users\Andrew\Desktop\Stock Control\Stock Control\bin\Debug\Stock Control.exe.config
+C:\Users\Andrew\Desktop\Stock Control\Stock Control\bin\Debug\Stock Control.exe
+C:\Users\Andrew\Desktop\Stock Control\Stock Control\bin\Debug\Stock Control.pdb
+C:\Users\Andrew\Desktop\Stock Control\Stock Control\obj\Debug\Stock Control.csprojAssemblyReference.cache
+C:\Users\Andrew\Desktop\Stock Control\Stock Control\obj\Debug\Stock_Control.AddItem.resources
+C:\Users\Andrew\Desktop\Stock Control\Stock Control\obj\Debug\Stock_Control.Form1.resources
+C:\Users\Andrew\Desktop\Stock Control\Stock Control\obj\Debug\Stock_Control.MainMenu.resources
+C:\Users\Andrew\Desktop\Stock Control\Stock Control\obj\Debug\Stock_Control.Properties.Resources.resources
+C:\Users\Andrew\Desktop\Stock Control\Stock Control\obj\Debug\Stock_Control.Search.resources
+C:\Users\Andrew\Desktop\Stock Control\Stock Control\obj\Debug\Stock Control.csproj.GenerateResource.cache
+C:\Users\Andrew\Desktop\Stock Control\Stock Control\obj\Debug\Stock Control.csproj.CoreCompileInputs.cache
+C:\Users\Andrew\Desktop\Stock Control\Stock Control\obj\Debug\Stock Control.exe
+C:\Users\Andrew\Desktop\Stock Control\Stock Control\obj\Debug\Stock Control.pdb
+C:\Users\Andrew\Desktop\Stock Control\Stock Control\obj\Debug\Stock_Control.InteractiveReport.resources
