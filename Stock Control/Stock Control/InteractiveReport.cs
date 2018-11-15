@@ -16,9 +16,10 @@ namespace Stock_Control
         SqlCommand cmd;
         SqlDataAdapter adapt;
         int ID = 0;
-        DataTable dt1;
-        string original_quantity;
+        DataTable dt1, dt2;
+        string original_quantity, price_difference_string, tostringresult, tostringmoneydiff;
         int quantity_difference;
+        float price_difference;
 
 
 
@@ -32,7 +33,10 @@ namespace Stock_Control
         private void InteractiveReport_Load(object sender, EventArgs e)
         {
             //Clone one time
-            dt1 = ((DataTable)dataGridView1.DataSource).Clone();
+            dt2 = ((DataTable)dataGridView1.DataSource).Clone();
+            dt2.Columns.Add(new DataColumn("Stock Found", typeof(int)));
+            dt2.Columns.Add(new DataColumn("Difference of Stock", typeof(int)));
+            dt2.Columns.Add(new DataColumn("Money Difference", typeof(float)));
         }
 
         //Display Data in DataGridView  
@@ -40,11 +44,10 @@ namespace Stock_Control
         {
             con.Open();
             DataTable dt1 = new DataTable();
-            adapt = new SqlDataAdapter("select NUM_itemID, CHR_item_name, NUM_Quantity, NUM_Product_category from TBL_SC_ITEMS", con);
+            DataTable dt2 = new DataTable();
+            adapt = new SqlDataAdapter("select NUM_itemID, CHR_item_name, NUM_Quantity, FT_price, NUM_Product_category from TBL_SC_ITEMS", con);
             adapt.Fill(dt1);
             dataGridView1.DataSource = dt1;
-            dt1.Columns.Add(new DataColumn("Stock Found", typeof(int)));
-            dt1.Columns.Add(new DataColumn("Difference of Stock", typeof(int)));
             con.Close();
         }
 
@@ -56,17 +59,29 @@ namespace Stock_Control
             lbl_name.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
             lbl_quantity.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
 
+            
+
+            original_quantity = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            quantity_difference = Int32.Parse(original_quantity);
+
+
+            price_difference_string = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+            price_difference = Convert.ToSingle(price_difference_string);
+
+
         }
 
         //dataGridView2 RowHeaderMouseClick Event  
-        private void dataGridView2_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void dataGridView2_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs g)
         {
-            ID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
-            original_quantity = dataGridView2.Rows[e.RowIndex].Cells[2].Value.ToString();
-            
-            //lbl_quantity.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+           // ID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+            label4.Text = "Difference in Stock is: " + dataGridView2.Rows[g.RowIndex].Cells[6].Value.ToString() + " And Difference in Money is: "
+                + dataGridView2.Rows[g.RowIndex].Cells[7].Value.ToString() + " Euros";
+
            
-            
+            //lbl_quantity.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+
+
         }
 
         //Update Record  
@@ -83,7 +98,7 @@ namespace Stock_Control
 
 
 
-                quantity_difference = Int32.Parse(original_quantity);
+                
 
 
                 int quantity_found = Int32.Parse(txt_quant_found.Text);
@@ -92,16 +107,23 @@ namespace Stock_Control
                 {
                     foreach (DataGridViewRow row in dataGridView1.SelectedRows)
                     {
-                        dt1.ImportRow(((DataTable)dataGridView1.DataSource).Rows[row.Index]);
-                        dt1.Columns["Stock Found"].Expression = txt_quant_found.Text;
+                        dt2.ImportRow(((DataTable)dataGridView1.DataSource).Rows[row.Index]);
+                        dt2.Columns["Stock Found"].Expression = txt_quant_found.Text;
 
-                        quantity_difference = quantity_difference - quantity_found;
-                        String tostringresult = quantity_difference.ToString();
-                        dt1.Columns["Difference of Stock"].Expression = tostringresult;
+
+                        price_difference = price_difference * quantity_difference;
+                        
+                        tostringresult = quantity_difference.ToString();
+                        tostringmoneydiff = price_difference.ToString();
+                        dt2.Columns["Difference of Stock"].Expression = tostringresult;
+                        dt2.Columns["Money Difference"].Expression = tostringmoneydiff;
+
                     }
-                    dt1.AcceptChanges();
+                    quantity_difference = quantity_found - quantity_difference;
 
-                    dataGridView2.DataSource = dt1;
+                    dt2.AcceptChanges();
+
+                    dataGridView2.DataSource = dt2;
                 }
                 con.Close();
                 DisplayData();
