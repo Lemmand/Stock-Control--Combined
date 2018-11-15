@@ -8,11 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+
 namespace Stock_Control
 {
     public partial class InteractiveReport : Form
     {
-        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-7P495QJ\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
+        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-A9R1KT2\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
         SqlCommand cmd;
         SqlDataAdapter adapt;
         int ID = 0;
@@ -37,6 +38,13 @@ namespace Stock_Control
             dt2.Columns.Add(new DataColumn("Stock Found", typeof(int)));
             dt2.Columns.Add(new DataColumn("Difference of Stock", typeof(int)));
             dt2.Columns.Add(new DataColumn("Money Difference", typeof(float)));
+
+            dataGridView1.Columns[0].HeaderCell.Value = "ID";
+            dataGridView1.Columns[1].HeaderCell.Value = "Name";
+            dataGridView1.Columns[2].HeaderCell.Value = "Quantity";
+            dataGridView1.Columns[3].HeaderCell.Value = "Price";
+            dataGridView1.Columns[4].HeaderCell.Value = "Product Category";
+            dataGridView2.Hide();
         }
 
         //Display Data in DataGridView  
@@ -45,7 +53,7 @@ namespace Stock_Control
             con.Open();
             DataTable dt1 = new DataTable();
             DataTable dt2 = new DataTable();
-            adapt = new SqlDataAdapter("select NUM_itemID, CHR_item_name, NUM_Quantity, FT_price, NUM_Product_category from TBL_SC_ITEMS", con);
+            adapt = new SqlDataAdapter("Select NUM_itemID, CHR_item_name, NUM_Quantity, FT_price, NUM_Product_category from TBL_SC_ITEMS", con);
             adapt.Fill(dt1);
             dataGridView1.DataSource = dt1;
             con.Close();
@@ -94,11 +102,7 @@ namespace Stock_Control
                 cmd.Parameters.AddWithValue("@id", ID);
                 cmd.Parameters.AddWithValue("@quantity", txt_quant_found.Text);
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Record Updated Successfully");
-
-
-
-                
+                MessageBox.Show("Item Quantity Updated Successfully");
 
 
                 int quantity_found = Int32.Parse(txt_quant_found.Text);
@@ -108,31 +112,46 @@ namespace Stock_Control
                     foreach (DataGridViewRow row in dataGridView1.SelectedRows)
                     {
                         dt2.ImportRow(((DataTable)dataGridView1.DataSource).Rows[row.Index]);
-                        dt2.Columns["Stock Found"].Expression = txt_quant_found.Text;
+                       // dt2.Columns["Stock Found"].Expression = txt_quant_found.Text;
 
-
+                        quantity_difference = quantity_found - quantity_difference;
                         price_difference = price_difference * quantity_difference;
                         
                         tostringresult = quantity_difference.ToString();
                         tostringmoneydiff = price_difference.ToString();
-                        dt2.Columns["Difference of Stock"].Expression = tostringresult;
-                        dt2.Columns["Money Difference"].Expression = tostringmoneydiff;
+
+                         DataRow lastrow = dt2.Rows[dt2.Rows.Count- 1];
+                        lastrow["Difference of Stock"] = tostringresult;
+                        lastrow["Stock Found"] = txt_quant_found.Text;
+                        lastrow["Money Difference"] = tostringmoneydiff;
+
+                        //  dt2.Columns["Difference of Stock"].Expression = tostringresult;
+                        // dt2.Columns["Money Difference"].Expression = tostringmoneydiff;
 
                     }
-                    quantity_difference = quantity_found - quantity_difference;
+
 
                     dt2.AcceptChanges();
 
+                    dataGridView2.Show();
                     dataGridView2.DataSource = dt2;
                 }
                 con.Close();
+
+
+                dataGridView2.Columns[0].HeaderCell.Value = "ID";
+                dataGridView2.Columns[1].HeaderCell.Value = "Name";
+                dataGridView2.Columns[2].HeaderCell.Value = "Quantity";
+                dataGridView2.Columns[3].HeaderCell.Value = "Price";
+                dataGridView2.Columns[4].HeaderCell.Value = "Product Category";
+
                 DisplayData();
                 // ClearData();
                 
             }
             else
             {
-                MessageBox.Show("Please Select Record to Update");
+                MessageBox.Show("Please Select Item to Update");
             }
         }
 

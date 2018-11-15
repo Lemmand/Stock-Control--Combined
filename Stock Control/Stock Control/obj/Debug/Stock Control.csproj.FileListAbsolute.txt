@@ -39,3 +39,17 @@ C:\Projects\University\Software Engineering 2\Stock-Control--Combined\Stock Cont
 C:\Projects\University\Software Engineering 2\Stock-Control--Combined\Stock Control\Stock Control\obj\Debug\Stock Control.csproj.CoreCompileInputs.cache
 C:\Projects\University\Software Engineering 2\Stock-Control--Combined\Stock Control\Stock Control\obj\Debug\Stock Control.exe
 C:\Projects\University\Software Engineering 2\Stock-Control--Combined\Stock Control\Stock Control\obj\Debug\Stock Control.pdb
+D:\Projects\Software Engineering 2\Stock-Control--Combined\Stock Control\Stock Control\bin\Debug\Stock Control.exe.config
+D:\Projects\Software Engineering 2\Stock-Control--Combined\Stock Control\Stock Control\bin\Debug\Stock Control.exe
+D:\Projects\Software Engineering 2\Stock-Control--Combined\Stock Control\Stock Control\bin\Debug\Stock Control.pdb
+D:\Projects\Software Engineering 2\Stock-Control--Combined\Stock Control\Stock Control\obj\Debug\Stock Control.csprojAssemblyReference.cache
+D:\Projects\Software Engineering 2\Stock-Control--Combined\Stock Control\Stock Control\obj\Debug\Stock_Control.AddItem.resources
+D:\Projects\Software Engineering 2\Stock-Control--Combined\Stock Control\Stock Control\obj\Debug\Stock_Control.Form1.resources
+D:\Projects\Software Engineering 2\Stock-Control--Combined\Stock Control\Stock Control\obj\Debug\Stock_Control.InteractiveReport.resources
+D:\Projects\Software Engineering 2\Stock-Control--Combined\Stock Control\Stock Control\obj\Debug\Stock_Control.MainMenu.resources
+D:\Projects\Software Engineering 2\Stock-Control--Combined\Stock Control\Stock Control\obj\Debug\Stock_Control.Properties.Resources.resources
+D:\Projects\Software Engineering 2\Stock-Control--Combined\Stock Control\Stock Control\obj\Debug\Stock_Control.Search.resources
+D:\Projects\Software Engineering 2\Stock-Control--Combined\Stock Control\Stock Control\obj\Debug\Stock Control.csproj.GenerateResource.cache
+D:\Projects\Software Engineering 2\Stock-Control--Combined\Stock Control\Stock Control\obj\Debug\Stock Control.csproj.CoreCompileInputs.cache
+D:\Projects\Software Engineering 2\Stock-Control--Combined\Stock Control\Stock Control\obj\Debug\Stock Control.exe
+D:\Projects\Software Engineering 2\Stock-Control--Combined\Stock Control\Stock Control\obj\Debug\Stock Control.pdb

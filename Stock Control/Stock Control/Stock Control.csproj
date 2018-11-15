@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountsPayableDataSet.cs">
+      <DependentUpon>AccountsPayableDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="AccountsPayableDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
