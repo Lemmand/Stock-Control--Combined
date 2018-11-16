@@ -28,12 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.cb_saleflag = new System.Windows.Forms.ComboBox();
-            this.cb_prodcat = new System.Windows.Forms.ComboBox();
-            this.cb_vatcat = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txt_price = new System.Windows.Forms.TextBox();
@@ -58,64 +52,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_vat_cat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_prod_cat)).BeginInit();
             this.SuspendLayout();
-            // 
-            // cb_saleflag
-            // 
-            this.cb_saleflag.FormattingEnabled = true;
-            this.cb_saleflag.Items.AddRange(new object[] {
-            "Buy",
-            "Sell",
-            "Buy&Sell"});
-            this.cb_saleflag.Location = new System.Drawing.Point(342, 228);
-            this.cb_saleflag.Name = "cb_saleflag";
-            this.cb_saleflag.Size = new System.Drawing.Size(121, 21);
-            this.cb_saleflag.TabIndex = 43;
-            // 
-            // cb_prodcat
-            // 
-            this.cb_prodcat.FormattingEnabled = true;
-            this.cb_prodcat.Location = new System.Drawing.Point(342, 170);
-            this.cb_prodcat.Name = "cb_prodcat";
-            this.cb_prodcat.Size = new System.Drawing.Size(121, 21);
-            this.cb_prodcat.TabIndex = 41;
-            // 
-            // cb_vatcat
-            // 
-            this.cb_vatcat.FormattingEnabled = true;
-            this.cb_vatcat.Location = new System.Drawing.Point(342, 105);
-            this.cb_vatcat.Name = "cb_vatcat";
-            this.cb_vatcat.Size = new System.Drawing.Size(121, 21);
-            this.cb_vatcat.TabIndex = 40;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(339, 203);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(51, 13);
-            this.label8.TabIndex = 37;
-            this.label8.Text = "Sale Flag";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(339, 144);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(89, 13);
-            this.label6.TabIndex = 35;
-            this.label6.Text = "Product Category";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(339, 72);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(73, 13);
-            this.label7.TabIndex = 34;
-            this.label7.Text = "VAT Category";
             // 
             // label4
             // 
@@ -193,7 +129,7 @@
             // 
             this.btn_confirm.BackColor = System.Drawing.Color.RoyalBlue;
             this.btn_confirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_confirm.Location = new System.Drawing.Point(582, 144);
+            this.btn_confirm.Location = new System.Drawing.Point(315, 195);
             this.btn_confirm.Name = "btn_confirm";
             this.btn_confirm.Size = new System.Drawing.Size(199, 66);
             this.btn_confirm.TabIndex = 25;
@@ -309,6 +245,7 @@
             this.dgv_vat_cat.ReadOnly = true;
             this.dgv_vat_cat.Size = new System.Drawing.Size(776, 146);
             this.dgv_vat_cat.TabIndex = 53;
+            this.dgv_vat_cat.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_vat_cat_RowHeaderMouseClick);
             // 
             // dgv_prod_cat
             // 
@@ -322,6 +259,7 @@
             this.dgv_prod_cat.ReadOnly = true;
             this.dgv_prod_cat.Size = new System.Drawing.Size(776, 146);
             this.dgv_prod_cat.TabIndex = 54;
+            this.dgv_prod_cat.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_prod_cat_RowHeaderMouseClick);
             // 
             // AddItem
             // 
@@ -340,12 +278,6 @@
             this.Controls.Add(this.btn_show_suppliers);
             this.Controls.Add(this.lbl_supplier);
             this.Controls.Add(this.dgv_suppliers);
-            this.Controls.Add(this.cb_saleflag);
-            this.Controls.Add(this.cb_prodcat);
-            this.Controls.Add(this.cb_vatcat);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txt_price);
@@ -367,12 +299,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.ComboBox cb_saleflag;
-        private System.Windows.Forms.ComboBox cb_prodcat;
-        private System.Windows.Forms.ComboBox cb_vatcat;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txt_price;

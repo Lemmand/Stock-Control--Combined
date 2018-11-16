@@ -15,7 +15,8 @@ namespace Stock_Control
         SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-A9R1KT2\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
         SqlCommand cmd;
         SqlDataAdapter adapt;
-        int supplier_ID;
+        int supplier_ID, vat_category_ID, prod_category_ID;
+
 
         public AddItem()
         {
@@ -73,7 +74,19 @@ namespace Stock_Control
             supplier_ID = Convert.ToInt32(dgv_suppliers.Rows[e.RowIndex].Cells[0].Value.ToString());
             lbl_supplier.Text = dgv_suppliers.Rows[e.RowIndex].Cells[0].Value.ToString();
            
+        }
 
+        private void dgv_vat_cat_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            vat_category_ID = Convert.ToInt32(dgv_suppliers.Rows[e.RowIndex].Cells[0].Value.ToString());
+            lbl_vat_cat.Text = dgv_suppliers.Rows[e.RowIndex].Cells[1].Value.ToString();
+
+        }
+
+        private void dgv_prod_cat_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            prod_category_ID = Convert.ToInt32(dgv_suppliers.Rows[e.RowIndex].Cells[0].Value.ToString());
+            lbl_prod_cat.Text = dgv_suppliers.Rows[e.RowIndex].Cells[1].Value.ToString();
 
         }
 
