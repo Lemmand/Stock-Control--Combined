@@ -20,17 +20,47 @@ namespace Stock_Control
         public AddItem()
         {
             InitializeComponent();
-            DisplayData();
+            DisplayDataVendors();
+            DisplayDataProductCat();
+            DisplayDataVat();
+            dgv_suppliers.Hide();
+            dgv_prod_cat.Hide();
+            dgv_vat_cat.Hide();
         }
 
         //Display Data in DataGridView  
-        private void DisplayData()
+        private void DisplayDataVendors()
         {
             con.Open();
             DataTable dt1 = new DataTable();
             adapt = new SqlDataAdapter("Select * from TBL_VENDOR", con);
             adapt.Fill(dt1);
             dgv_suppliers.DataSource = dt1;
+            this.dgv_suppliers.DefaultCellStyle.ForeColor = Color.Blue;
+            con.Close();
+        }
+
+
+        private void DisplayDataVat()
+        {
+            con.Open();
+            DataTable dt2 = new DataTable();
+            adapt = new SqlDataAdapter("Select * from TBL_VAT_CATEGORIES", con);
+            adapt.Fill(dt2);
+            dgv_vat_cat.DataSource = dt2;
+            this.dgv_vat_cat.DefaultCellStyle.ForeColor = Color.Blue;
+            con.Close();
+        }
+
+
+        private void DisplayDataProductCat()
+        {
+            con.Open();
+            DataTable dt3 = new DataTable();
+            adapt = new SqlDataAdapter("Select * from TBL_PRODUCT_CATEGORIES", con);
+            adapt.Fill(dt3);
+            dgv_prod_cat.DataSource = dt3;
+            this.dgv_prod_cat.DefaultCellStyle.ForeColor = Color.Blue;
             con.Close();
         }
 
@@ -86,5 +116,26 @@ namespace Stock_Control
             txt_quantity.Text = "";
         }
 
+        private void btn_show_suppliers_Click(object sender, EventArgs e)
+        {
+            dgv_vat_cat.Hide();
+            dgv_prod_cat.Hide();
+            dgv_suppliers.Show();
+            
+        }
+
+        private void btn_show_vat_Click(object sender, EventArgs e)
+        {          
+            dgv_suppliers.Hide();
+            dgv_prod_cat.Hide();
+            dgv_vat_cat.Show();
+        }
+
+        private void btn_shw_prod_cat_Click(object sender, EventArgs e)
+        {
+            dgv_vat_cat.Hide();
+            dgv_suppliers.Hide();
+            dgv_prod_cat.Show();
+        }
     }
 }
