@@ -93,20 +93,20 @@
             // interactiveReportToolStripMenuItem
             // 
             this.interactiveReportToolStripMenuItem.Name = "interactiveReportToolStripMenuItem";
-            this.interactiveReportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.interactiveReportToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.interactiveReportToolStripMenuItem.Text = "Interactive Report";
             this.interactiveReportToolStripMenuItem.Click += new System.EventHandler(this.interactiveReportToolStripMenuItem_Click);
             // 
             // restockToolStripMenuItem
             // 
             this.restockToolStripMenuItem.Name = "restockToolStripMenuItem";
-            this.restockToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.restockToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.restockToolStripMenuItem.Text = "Restock";
             // 
             // createOrderToolStripMenuItem
             // 
             this.createOrderToolStripMenuItem.Name = "createOrderToolStripMenuItem";
-            this.createOrderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.createOrderToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.createOrderToolStripMenuItem.Text = "Create Order";
             // 
             // MainMenu
@@ -119,6 +119,7 @@
             this.Name = "MainMenu";
             this.Text = "MainMenu";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainMenu_FormClosing);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);

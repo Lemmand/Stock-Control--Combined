@@ -43,6 +43,9 @@ namespace Stock_Control
             interactive_report.Show();
         }
 
-
+        private void MainMenu_FormClosing(Object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

@@ -12,7 +12,7 @@ namespace Stock_Control
 {
     public partial class AddItem : Form
     {
-        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-A9R1KT2\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
+        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-7P495QJ\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
         SqlCommand cmd;
         SqlDataAdapter adapt;
         int supplier_ID, vat_category_ID, prod_category_ID;
@@ -29,7 +29,6 @@ namespace Stock_Control
             dgv_vat_cat.Hide();
         }
 
-        //Display Data in DataGridView  
         private void DisplayDataVendors()
         {
             con.Open();
@@ -64,11 +63,7 @@ namespace Stock_Control
             this.dgv_prod_cat.DefaultCellStyle.ForeColor = Color.Blue;
             con.Close();
         }
-
-
-
-
-        //dgv_suppliers RowHeaderMouseClick Event  
+ 
         private void dgv_suppliers_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             supplier_ID = Convert.ToInt32(dgv_suppliers.Rows[e.RowIndex].Cells[0].Value.ToString());
@@ -102,8 +97,8 @@ namespace Stock_Control
         private void btn_confirm_Click_1(object sender, EventArgs e)
         {
             con.Open();
-            cmd = new SqlCommand("INSERT INTO TBL_SC_ITEMS (CHR_item_name, FT_price, NUM_Price, NUM_manufacturer, NUM_Vat_category , NUM_Quantity_id, CHR_Product_saleflag, NUM_Product_category) " +
-                "VALUES (@CHR_item_name, @FT_price, @NUM_Price, @NUM_manufacturer, @NUM_Vat_category , @NUM_Quantity_id, @CHR_Product_saleflag, @NUM_Product_category)", con);
+            cmd = new SqlCommand("INSERT INTO TBL_SC_ITEMS (CHR_item_name, FT_price, NUM_manufacturer, NUM_Vat_category , NUM_Quantity, CHR_Product_saleflag, NUM_Product_category) " +
+                "VALUES (@CHR_item_name, @FT_price, @NUM_manufacturer, @NUM_Vat_category , @NUM_Quantity, @CHR_Product_saleflag, @NUM_Product_category)", con);
 
             if (txt_name.Text == "")
             {
@@ -121,19 +116,26 @@ namespace Stock_Control
             {
                 MessageBox.Show("Please Enter a Manufacturer");
             }
+            else if (vat_category_ID == -1)
+            {
+                MessageBox.Show("Please Enter a VAT Category");
+            }
+            else if (prod_category_ID == -1)
+            {
+                MessageBox.Show("Please Enter a Product Category");
+            }
             else if (cb_saleflag.SelectedIndex == -1)
             {
                 MessageBox.Show("Please Enter Sale Flag");
 
-            } else
+            }
+            else
             {
                 cmd.Parameters.AddWithValue("@CHR_item_name", txt_name.Text);
-                cmd.Parameters.AddWithValue("@NUM_Quantity_id", txt_quantity.Text);
-
-                price_of_product = float.Parse(txt_price.Text);
-                MessageBox.Show(""+price_of_product);
-                cmd.Parameters.AddWithValue("@FT_price", price_of_product);
-
+                cmd.Parameters.AddWithValue("@NUM_Quantity", txt_quantity.Text);
+                cmd.Parameters.AddWithValue("@NUM_Vat_category", vat_category_ID);
+                cmd.Parameters.AddWithValue("@NUM_Product_category", prod_category_ID);
+                cmd.Parameters.AddWithValue("@FT_price", txt_price.Text);
                 cmd.Parameters.AddWithValue("@NUM_manufacturer", supplier_ID);
 
                 if (cb_saleflag.SelectedIndex == 0)
@@ -149,6 +151,7 @@ namespace Stock_Control
                     cmd.Parameters.AddWithValue("@CHR_Product_saleflag", "Buy&Sell");
                 }
                 cmd.ExecuteNonQuery();
+                MessageBox.Show("Product Added Successfully");
                 ClearData();
             }
             con.Close();            
@@ -160,7 +163,12 @@ namespace Stock_Control
             txt_quantity.Text = "";
             txt_price.Text = "";
             supplier_ID = -1;
+            prod_category_ID = -1;
+            vat_category_ID = -1;
             cb_saleflag.SelectedIndex = -1;
+            lbl_prod_cat.Text = "";
+            lbl_supplier.Text = "";
+            lbl_vat_cat.Text = "";
             
         }
 
