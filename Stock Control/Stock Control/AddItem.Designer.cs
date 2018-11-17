@@ -48,6 +48,8 @@
             this.label12 = new System.Windows.Forms.Label();
             this.dgv_vat_cat = new System.Windows.Forms.DataGridView();
             this.dgv_prod_cat = new System.Windows.Forms.DataGridView();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cb_saleflag = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_suppliers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_vat_cat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_prod_cat)).BeginInit();
@@ -135,6 +137,7 @@
             this.btn_confirm.TabIndex = 25;
             this.btn_confirm.Text = "Submit";
             this.btn_confirm.UseVisualStyleBackColor = false;
+            this.btn_confirm.Click += new System.EventHandler(this.btn_confirm_Click_1);
             // 
             // dgv_suppliers
             // 
@@ -261,12 +264,36 @@
             this.dgv_prod_cat.TabIndex = 54;
             this.dgv_prod_cat.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_prod_cat_RowHeaderMouseClick);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(312, 72);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(51, 13);
+            this.label6.TabIndex = 55;
+            this.label6.Text = "Sale Flag";
+            // 
+            // cb_saleflag
+            // 
+            this.cb_saleflag.FormattingEnabled = true;
+            this.cb_saleflag.Items.AddRange(new object[] {
+            "Buy",
+            "Sell",
+            "Buy&Sell"});
+            this.cb_saleflag.Location = new System.Drawing.Point(310, 99);
+            this.cb_saleflag.Name = "cb_saleflag";
+            this.cb_saleflag.Size = new System.Drawing.Size(121, 21);
+            this.cb_saleflag.TabIndex = 56;
+            // 
             // AddItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
             this.ClientSize = new System.Drawing.Size(937, 615);
+            this.Controls.Add(this.cb_saleflag);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.dgv_prod_cat);
             this.Controls.Add(this.dgv_vat_cat);
             this.Controls.Add(this.lbl_prod_cat);
@@ -319,5 +346,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DataGridView dgv_vat_cat;
         private System.Windows.Forms.DataGridView dgv_prod_cat;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cb_saleflag;
     }
 }

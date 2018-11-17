@@ -95,66 +95,79 @@ namespace Stock_Control
         //Update Record  
         private void btn_update_Click(object sender, EventArgs e)
         {
-            if (txt_quant_found.Text != "")
+            if (lbl_name.Text != "" && lbl_quantity.Text != "" && ID != -1)
             {
-                cmd = new SqlCommand("UPDATE TBL_SC_ITEMS SET NUM_Quantity=@quantity where NUM_itemID=@id", con);
-                con.Open();
-                cmd.Parameters.AddWithValue("@id", ID);
-                cmd.Parameters.AddWithValue("@quantity", txt_quant_found.Text);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Item Quantity Updated Successfully");
-
-
-                int quantity_found = Int32.Parse(txt_quant_found.Text);
-
-                if (txt_quant_found.Text != lbl_quantity.Text)
+                if (txt_quant_found.Text != "")
                 {
-                    foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+                    cmd = new SqlCommand("UPDATE TBL_SC_ITEMS SET NUM_Quantity=@quantity where NUM_itemID=@id", con);
+                    con.Open();
+                    cmd.Parameters.AddWithValue("@id", ID);
+                    cmd.Parameters.AddWithValue("@quantity", txt_quant_found.Text);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Item Quantity Updated Successfully");
+
+
+                    int quantity_found = Int32.Parse(txt_quant_found.Text);
+
+                    if (txt_quant_found.Text != lbl_quantity.Text)
                     {
-                        dt2.ImportRow(((DataTable)dataGridView1.DataSource).Rows[row.Index]);
-                       // dt2.Columns["Stock Found"].Expression = txt_quant_found.Text;
+                        foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+                        {
+                            dt2.ImportRow(((DataTable)dataGridView1.DataSource).Rows[row.Index]);
+                            // dt2.Columns["Stock Found"].Expression = txt_quant_found.Text;
 
-                        quantity_difference = quantity_found - quantity_difference;
-                        price_difference = price_difference * quantity_difference;
-                        
-                        tostringresult = quantity_difference.ToString();
-                        tostringmoneydiff = price_difference.ToString();
+                            quantity_difference = quantity_found - quantity_difference;
+                            price_difference = price_difference * quantity_difference;
 
-                         DataRow lastrow = dt2.Rows[dt2.Rows.Count- 1];
-                        lastrow["Difference of Stock"] = tostringresult;
-                        lastrow["Stock Found"] = txt_quant_found.Text;
-                        lastrow["Money Difference"] = tostringmoneydiff;
+                            tostringresult = quantity_difference.ToString();
+                            tostringmoneydiff = price_difference.ToString();
 
-                        //  dt2.Columns["Difference of Stock"].Expression = tostringresult;
-                        // dt2.Columns["Money Difference"].Expression = tostringmoneydiff;
+                            DataRow lastrow = dt2.Rows[dt2.Rows.Count - 1];
+                            lastrow["Difference of Stock"] = tostringresult;
+                            lastrow["Stock Found"] = txt_quant_found.Text;
+                            lastrow["Money Difference"] = tostringmoneydiff;
 
+                            //  dt2.Columns["Difference of Stock"].Expression = tostringresult;
+                            // dt2.Columns["Money Difference"].Expression = tostringmoneydiff;
+
+                        }
+
+
+                        dt2.AcceptChanges();
+
+                        dataGridView2.Show();
+                        dataGridView2.DataSource = dt2;
                     }
+                    con.Close();
 
 
-                    dt2.AcceptChanges();
+                    dataGridView2.Columns[0].HeaderCell.Value = "ID";
+                    dataGridView2.Columns[1].HeaderCell.Value = "Name";
+                    dataGridView2.Columns[2].HeaderCell.Value = "Quantity";
+                    dataGridView2.Columns[3].HeaderCell.Value = "Price";
+                    dataGridView2.Columns[4].HeaderCell.Value = "Product Category";
 
-                    dataGridView2.Show();
-                    dataGridView2.DataSource = dt2;
+                    DisplayData();
+                    ClearData();
+
                 }
-                con.Close();
-
-
-                dataGridView2.Columns[0].HeaderCell.Value = "ID";
-                dataGridView2.Columns[1].HeaderCell.Value = "Name";
-                dataGridView2.Columns[2].HeaderCell.Value = "Quantity";
-                dataGridView2.Columns[3].HeaderCell.Value = "Price";
-                dataGridView2.Columns[4].HeaderCell.Value = "Product Category";
-
-                DisplayData();
-                // ClearData();
-                
-            }
-            else
+                else
+                {
+                    MessageBox.Show("Please Select Item to Update");
+                }
+            } else
             {
-                MessageBox.Show("Please Select Item to Update");
+                MessageBox.Show("Please Select an Item");
             }
         }
 
-       
+        private void ClearData()
+        {
+            lbl_name.Text = "";
+            lbl_quantity.Text = "";
+            txt_quant_found.Text = "";
+            ID = -1;
+        }
+
     }
 }
