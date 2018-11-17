@@ -16,7 +16,7 @@ namespace Stock_Control
         SqlCommand cmd;
         SqlDataAdapter adapt;
         int supplier_ID, vat_category_ID, prod_category_ID;
-
+        float price_of_product = 0;
 
         public AddItem()
         {
@@ -78,15 +78,15 @@ namespace Stock_Control
 
         private void dgv_vat_cat_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            vat_category_ID = Convert.ToInt32(dgv_suppliers.Rows[e.RowIndex].Cells[0].Value.ToString());
-            lbl_vat_cat.Text = dgv_suppliers.Rows[e.RowIndex].Cells[1].Value.ToString();
+            vat_category_ID = Convert.ToInt32(dgv_vat_cat.Rows[e.RowIndex].Cells[0].Value.ToString());
+            lbl_vat_cat.Text = dgv_vat_cat.Rows[e.RowIndex].Cells[1].Value.ToString();
 
         }
 
         private void dgv_prod_cat_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            prod_category_ID = Convert.ToInt32(dgv_suppliers.Rows[e.RowIndex].Cells[0].Value.ToString());
-            lbl_prod_cat.Text = dgv_suppliers.Rows[e.RowIndex].Cells[1].Value.ToString();
+            prod_category_ID = Convert.ToInt32(dgv_prod_cat.Rows[e.RowIndex].Cells[0].Value.ToString());
+            lbl_prod_cat.Text = dgv_prod_cat.Rows[e.RowIndex].Cells[1].Value.ToString();
 
         }
 
@@ -102,8 +102,8 @@ namespace Stock_Control
         private void btn_confirm_Click_1(object sender, EventArgs e)
         {
             con.Open();
-            cmd = new SqlCommand("INSERT INTO TBL_SC_ITEMS (CHR_item_name, FT_price, CHR_info, NUM_Price, NUM_manufacturer, NUM_Vat_category , NUM_Quantity_id, CHR_Product_saleflag, NUM_Product_category) " +
-                "VALUES (@CHR_item_name, @FT_price, @CHR_info, @NUM_Price, @NUM_manufacturer, @NUM_Vat_category , @NUM_Quantity_id, @CHR_Product_saleflag, @NUM_Product_category)", con);
+            cmd = new SqlCommand("INSERT INTO TBL_SC_ITEMS (CHR_item_name, FT_price, NUM_Price, NUM_manufacturer, NUM_Vat_category , NUM_Quantity_id, CHR_Product_saleflag, NUM_Product_category) " +
+                "VALUES (@CHR_item_name, @FT_price, @NUM_Price, @NUM_manufacturer, @NUM_Vat_category , @NUM_Quantity_id, @CHR_Product_saleflag, @NUM_Product_category)", con);
 
             if (txt_name.Text == "")
             {
@@ -129,7 +129,11 @@ namespace Stock_Control
             {
                 cmd.Parameters.AddWithValue("@CHR_item_name", txt_name.Text);
                 cmd.Parameters.AddWithValue("@NUM_Quantity_id", txt_quantity.Text);
-                cmd.Parameters.AddWithValue("@FT_price", txt_price.Text);
+
+                price_of_product = float.Parse(txt_price.Text);
+                MessageBox.Show(""+price_of_product);
+                cmd.Parameters.AddWithValue("@FT_price", price_of_product);
+
                 cmd.Parameters.AddWithValue("@NUM_manufacturer", supplier_ID);
 
                 if (cb_saleflag.SelectedIndex == 0)
