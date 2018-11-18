@@ -47,5 +47,12 @@ namespace Stock_Control
         {
             Application.Exit();
         }
+
+        private void vendorMenuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddVendor vendormenu = new AddVendor();
+            vendormenu.MdiParent = this;
+            vendormenu.Show();
+        }
     }
 }

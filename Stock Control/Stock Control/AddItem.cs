@@ -12,11 +12,17 @@ namespace Stock_Control
 {
     public partial class AddItem : Form
     {
-        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-7P495QJ\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
+        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-A9R1KT2\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
         SqlCommand cmd;
         SqlDataAdapter adapt;
         int supplier_ID, vat_category_ID, prod_category_ID;
         float price_of_product = 0;
+
+
+
+        //naming of datagridviews
+     
+
 
         public AddItem()
         {
@@ -36,7 +42,21 @@ namespace Stock_Control
             adapt = new SqlDataAdapter("Select * from TBL_VENDOR", con);
             adapt.Fill(dt1);
             dgv_suppliers.DataSource = dt1;
+
             this.dgv_suppliers.DefaultCellStyle.ForeColor = Color.Blue;
+
+            dgv_suppliers.Columns[0].HeaderCell.Value = "ID";
+            dgv_suppliers.Columns[1].HeaderCell.Value = "Phone";
+            dgv_suppliers.Columns[2].HeaderCell.Value = "Address";
+            dgv_suppliers.Columns[3].HeaderCell.Value = "Company Name";
+            dgv_suppliers.Columns[4].HeaderCell.Value = "Company Type";
+            dgv_suppliers.Columns[5].HeaderCell.Value = "Country";
+            dgv_suppliers.Columns[6].HeaderCell.Value = "City";
+            dgv_suppliers.Columns[7].HeaderCell.Value = "Title";
+            dgv_suppliers.Columns[8].HeaderCell.Value = "First Name";
+            dgv_suppliers.Columns[9].HeaderCell.Value = "Surname";
+            dgv_suppliers.Columns[10].HeaderCell.Value = "Email";
+
             con.Close();
         }
 
@@ -48,7 +68,13 @@ namespace Stock_Control
             adapt = new SqlDataAdapter("Select * from TBL_VAT_CATEGORIES", con);
             adapt.Fill(dt2);
             dgv_vat_cat.DataSource = dt2;
+
             this.dgv_vat_cat.DefaultCellStyle.ForeColor = Color.Blue;
+
+            dgv_vat_cat.Columns[0].HeaderCell.Value = "ID";
+            dgv_vat_cat.Columns[1].HeaderCell.Value = "VAT Rate";
+            dgv_vat_cat.Columns[2].HeaderCell.Value = "Description";
+
             con.Close();
         }
 
@@ -60,7 +86,13 @@ namespace Stock_Control
             adapt = new SqlDataAdapter("Select * from TBL_PRODUCT_CATEGORIES", con);
             adapt.Fill(dt3);
             dgv_prod_cat.DataSource = dt3;
+
             this.dgv_prod_cat.DefaultCellStyle.ForeColor = Color.Blue;
+
+            dgv_prod_cat.Columns[0].HeaderCell.Value = "ID";
+            dgv_prod_cat.Columns[1].HeaderCell.Value = "Category Name";
+            dgv_prod_cat.Columns[2].HeaderCell.Value = "Description";
+
             con.Close();
         }
  

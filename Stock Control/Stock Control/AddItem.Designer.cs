@@ -59,7 +59,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(72, 345);
+            this.label4.Location = new System.Drawing.Point(62, 345);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(62, 13);
             this.label4.TabIndex = 33;
@@ -157,7 +157,7 @@
             // 
             this.lbl_supplier.AutoSize = true;
             this.lbl_supplier.ForeColor = System.Drawing.Color.White;
-            this.lbl_supplier.Location = new System.Drawing.Point(137, 345);
+            this.lbl_supplier.Location = new System.Drawing.Point(130, 345);
             this.lbl_supplier.Name = "lbl_supplier";
             this.lbl_supplier.Size = new System.Drawing.Size(0, 13);
             this.lbl_supplier.TabIndex = 45;
@@ -178,7 +178,7 @@
             // 
             this.btn_show_vat.BackColor = System.Drawing.Color.RoyalBlue;
             this.btn_show_vat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_show_vat.Location = new System.Drawing.Point(229, 370);
+            this.btn_show_vat.Location = new System.Drawing.Point(176, 370);
             this.btn_show_vat.Name = "btn_show_vat";
             this.btn_show_vat.Size = new System.Drawing.Size(83, 39);
             this.btn_show_vat.TabIndex = 47;
@@ -190,7 +190,7 @@
             // 
             this.btn_shw_prod_cat.BackColor = System.Drawing.Color.RoyalBlue;
             this.btn_shw_prod_cat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_shw_prod_cat.Location = new System.Drawing.Point(368, 372);
+            this.btn_shw_prod_cat.Location = new System.Drawing.Point(292, 372);
             this.btn_shw_prod_cat.Name = "btn_shw_prod_cat";
             this.btn_shw_prod_cat.Size = new System.Drawing.Size(95, 37);
             this.btn_shw_prod_cat.TabIndex = 48;
@@ -202,7 +202,7 @@
             // 
             this.lbl_vat_cat.AutoSize = true;
             this.lbl_vat_cat.ForeColor = System.Drawing.Color.White;
-            this.lbl_vat_cat.Location = new System.Drawing.Point(312, 345);
+            this.lbl_vat_cat.Location = new System.Drawing.Point(236, 345);
             this.lbl_vat_cat.Name = "lbl_vat_cat";
             this.lbl_vat_cat.Size = new System.Drawing.Size(0, 13);
             this.lbl_vat_cat.TabIndex = 50;
@@ -211,17 +211,17 @@
             // 
             this.label10.AutoSize = true;
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(235, 345);
+            this.label10.Location = new System.Drawing.Point(173, 345);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(71, 13);
+            this.label10.Size = new System.Drawing.Size(57, 13);
             this.label10.TabIndex = 49;
-            this.label10.Text = "Vat Category:";
+            this.label10.Text = "VAT Rate:";
             // 
             // lbl_prod_cat
             // 
             this.lbl_prod_cat.AutoSize = true;
             this.lbl_prod_cat.ForeColor = System.Drawing.Color.White;
-            this.lbl_prod_cat.Location = new System.Drawing.Point(469, 345);
+            this.lbl_prod_cat.Location = new System.Drawing.Point(387, 345);
             this.lbl_prod_cat.Name = "lbl_prod_cat";
             this.lbl_prod_cat.Size = new System.Drawing.Size(0, 13);
             this.lbl_prod_cat.TabIndex = 52;
@@ -230,7 +230,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(371, 345);
+            this.label12.Location = new System.Drawing.Point(289, 345);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(92, 13);
             this.label12.TabIndex = 51;
