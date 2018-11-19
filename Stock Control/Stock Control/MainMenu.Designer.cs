@@ -33,11 +33,12 @@
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.addItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchStockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vendorMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.customerMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
             this.interactiveReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.restockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.vendorMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,7 +59,8 @@
             this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addItemToolStripMenuItem,
             this.searchStockToolStripMenuItem,
-            this.vendorMenuToolStripMenuItem});
+            this.vendorMenuToolStripMenuItem,
+            this.customerMenuToolStripMenuItem});
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
             this.toolStripDropDownButton1.Size = new System.Drawing.Size(72, 22);
@@ -69,15 +71,29 @@
             // 
             this.addItemToolStripMenuItem.Name = "addItemToolStripMenuItem";
             this.addItemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.addItemToolStripMenuItem.Text = "Add Item";
+            this.addItemToolStripMenuItem.Text = "Add Product";
             this.addItemToolStripMenuItem.Click += new System.EventHandler(this.addItemToolStripMenuItem_Click);
             // 
             // searchStockToolStripMenuItem
             // 
             this.searchStockToolStripMenuItem.Name = "searchStockToolStripMenuItem";
             this.searchStockToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.searchStockToolStripMenuItem.Text = "Search Stock";
+            this.searchStockToolStripMenuItem.Text = "Product Menu";
             this.searchStockToolStripMenuItem.Click += new System.EventHandler(this.searchStockToolStripMenuItem_Click);
+            // 
+            // vendorMenuToolStripMenuItem
+            // 
+            this.vendorMenuToolStripMenuItem.Name = "vendorMenuToolStripMenuItem";
+            this.vendorMenuToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.vendorMenuToolStripMenuItem.Text = "Vendor Menu";
+            this.vendorMenuToolStripMenuItem.Click += new System.EventHandler(this.vendorMenuToolStripMenuItem_Click);
+            // 
+            // customerMenuToolStripMenuItem
+            // 
+            this.customerMenuToolStripMenuItem.Name = "customerMenuToolStripMenuItem";
+            this.customerMenuToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.customerMenuToolStripMenuItem.Text = "Customer Menu";
+            this.customerMenuToolStripMenuItem.Click += new System.EventHandler(this.customerMenuToolStripMenuItem_Click);
             // 
             // toolStripDropDownButton2
             // 
@@ -111,13 +127,6 @@
             this.createOrderToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.createOrderToolStripMenuItem.Text = "Create Order";
             // 
-            // vendorMenuToolStripMenuItem
-            // 
-            this.vendorMenuToolStripMenuItem.Name = "vendorMenuToolStripMenuItem";
-            this.vendorMenuToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.vendorMenuToolStripMenuItem.Text = "Vendor Menu";
-            this.vendorMenuToolStripMenuItem.Click += new System.EventHandler(this.vendorMenuToolStripMenuItem_Click);
-            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -147,5 +156,6 @@
         private System.Windows.Forms.ToolStripMenuItem restockToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createOrderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vendorMenuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem customerMenuToolStripMenuItem;
     }
 }

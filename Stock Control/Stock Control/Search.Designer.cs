@@ -29,58 +29,97 @@
         private void InitializeComponent()
         {
             this.label3 = new System.Windows.Forms.Label();
-            this.txt_name = new System.Windows.Forms.TextBox();
+            this.txt_prod_id = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dgv_products = new System.Windows.Forms.DataGridView();
+            this.btn_search = new System.Windows.Forms.Button();
+            this.btn_delete = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_products)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(319, 9);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(279, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(117, 29);
+            this.label3.Size = new System.Drawing.Size(221, 29);
             this.label3.TabIndex = 31;
-            this.label3.Text = "SEARCH";
+            this.label3.Text = "PRODUCT MENU";
             // 
-            // txt_name
+            // txt_prod_id
             // 
-            this.txt_name.Location = new System.Drawing.Point(324, 66);
-            this.txt_name.Name = "txt_name";
-            this.txt_name.Size = new System.Drawing.Size(274, 20);
-            this.txt_name.TabIndex = 32;
+            this.txt_prod_id.Location = new System.Drawing.Point(93, 65);
+            this.txt_prod_id.Name = "txt_prod_id";
+            this.txt_prod_id.Size = new System.Drawing.Size(75, 20);
+            this.txt_prod_id.TabIndex = 32;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(243, 69);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(29, 68);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 13);
+            this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 34;
-            this.label1.Text = "Product Name";
+            this.label1.Text = "Product ID";
             // 
-            // dataGridView1
+            // dgv_products
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(246, 156);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(370, 213);
-            this.dataGridView1.TabIndex = 35;
+            this.dgv_products.AllowUserToAddRows = false;
+            this.dgv_products.AllowUserToDeleteRows = false;
+            this.dgv_products.AllowUserToResizeColumns = false;
+            this.dgv_products.AllowUserToResizeRows = false;
+            this.dgv_products.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgv_products.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_products.Location = new System.Drawing.Point(32, 130);
+            this.dgv_products.MultiSelect = false;
+            this.dgv_products.Name = "dgv_products";
+            this.dgv_products.ReadOnly = true;
+            this.dgv_products.Size = new System.Drawing.Size(805, 213);
+            this.dgv_products.TabIndex = 35;
+            this.dgv_products.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_products_RowHeaderMouseClick);
+            // 
+            // btn_search
+            // 
+            this.btn_search.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btn_search.ForeColor = System.Drawing.Color.White;
+            this.btn_search.Location = new System.Drawing.Point(192, 63);
+            this.btn_search.Name = "btn_search";
+            this.btn_search.Size = new System.Drawing.Size(75, 23);
+            this.btn_search.TabIndex = 36;
+            this.btn_search.Text = "SEARCH";
+            this.btn_search.UseVisualStyleBackColor = false;
+            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
+            // 
+            // btn_delete
+            // 
+            this.btn_delete.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btn_delete.ForeColor = System.Drawing.Color.White;
+            this.btn_delete.Location = new System.Drawing.Point(284, 63);
+            this.btn_delete.Name = "btn_delete";
+            this.btn_delete.Size = new System.Drawing.Size(75, 23);
+            this.btn_delete.TabIndex = 37;
+            this.btn_delete.Text = "DELETE";
+            this.btn_delete.UseVisualStyleBackColor = false;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // Search
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dataGridView1);
+            this.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.ClientSize = new System.Drawing.Size(869, 388);
+            this.Controls.Add(this.btn_delete);
+            this.Controls.Add(this.btn_search);
+            this.Controls.Add(this.dgv_products);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txt_name);
+            this.Controls.Add(this.txt_prod_id);
             this.Controls.Add(this.label3);
             this.Name = "Search";
-            this.Text = "Search";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Text = "Product Menu";
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_products)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -89,8 +128,10 @@
         #endregion
 
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txt_name;
+        private System.Windows.Forms.TextBox txt_prod_id;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgv_products;
+        private System.Windows.Forms.Button btn_search;
+        private System.Windows.Forms.Button btn_delete;
     }
 }

@@ -54,3 +54,4 @@ D:\Projects\Software Engineering 2\Stock-Control--Combined\Stock Control\Stock C
 D:\Projects\Software Engineering 2\Stock-Control--Combined\Stock Control\Stock Control\obj\Debug\Stock Control.exe
 D:\Projects\Software Engineering 2\Stock-Control--Combined\Stock Control\Stock Control\obj\Debug\Stock Control.pdb
 D:\Projects\Software Engineering 2\Stock-Control--Combined\Stock Control\Stock Control\obj\Debug\Stock_Control.AddVendor.resources
+D:\Projects\Software Engineering 2\Stock-Control--Combined\Stock Control\Stock Control\obj\Debug\Stock_Control.Customer.resources

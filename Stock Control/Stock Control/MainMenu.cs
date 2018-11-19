@@ -54,5 +54,12 @@ namespace Stock_Control
             vendormenu.MdiParent = this;
             vendormenu.Show();
         }
+
+        private void customerMenuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Customer customermenu = new Customer();
+            customermenu.MdiParent = this;
+            customermenu.Show();
+        }
     }
 }

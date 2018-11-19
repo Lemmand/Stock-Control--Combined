@@ -49,7 +49,7 @@ namespace Stock_Control
             con.Open();
             DataTable dt1 = new DataTable();
             DataTable dt2 = new DataTable();
-            adapt = new SqlDataAdapter("Select NUM_itemID, CHR_item_name, NUM_Quantity, FT_price, NUM_Product_category from TBL_SC_ITEMS", con);
+            adapt = new SqlDataAdapter("Select NUM_itemID, CHR_item_name, NUM_Quantity, FT_price, .TBL_PRODUCT_CATEGORIES.CHR_Category_name from TBL_SC_ITEMS FULL JOIN TBL_PRODUCT_CATEGORIES ON TBL_SC_ITEMS.NUM_Product_category=TBL_PRODUCT_CATEGORIES.NUM_Category_id", con);
             adapt.Fill(dt1);
             dataGridView1.DataSource = dt1;
             con.Close();

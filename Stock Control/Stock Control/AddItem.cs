@@ -186,7 +186,7 @@ namespace Stock_Control
                 MessageBox.Show("Product Added Successfully");
                 ClearData();
             }
-            con.Close();            
+            con.Close();                      
         }
 
         private void ClearData()
