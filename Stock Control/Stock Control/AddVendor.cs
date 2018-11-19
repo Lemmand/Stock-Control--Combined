@@ -36,6 +36,7 @@ namespace Stock_Control
                 SDA.SelectCommand.ExecuteNonQuery();
                 conn.Close();
                 MessageBox.Show("Updated Successfully");
+                DisplayData();
                 ClearData();
             }
         }
@@ -83,6 +84,7 @@ namespace Stock_Control
                 SDA.SelectCommand.ExecuteNonQuery();
                 MessageBox.Show("Data inserted Successfully");
                 conn.Close();
+                DisplayData();
                 ClearData();
             }
         }
@@ -102,6 +104,7 @@ namespace Stock_Control
                 conn.Close();
                 MessageBox.Show("Deleted Successfully");
                 ClearData();
+                DisplayData();
             }
 
         }
