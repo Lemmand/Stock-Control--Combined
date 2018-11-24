@@ -18,7 +18,7 @@ namespace Stock_Control
                 InitializeComponent();
                 disp_DataCustomers();
             }
-            SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-A9R1KT2\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
+            SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-7P495QJ\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
 
             public void disp_DataCustomers()
             {

@@ -55,3 +55,9 @@ D:\Projects\Software Engineering 2\Stock-Control--Combined\Stock Control\Stock C
 D:\Projects\Software Engineering 2\Stock-Control--Combined\Stock Control\Stock Control\obj\Debug\Stock Control.pdb
 D:\Projects\Software Engineering 2\Stock-Control--Combined\Stock Control\Stock Control\obj\Debug\Stock_Control.AddVendor.resources
 D:\Projects\Software Engineering 2\Stock-Control--Combined\Stock Control\Stock Control\obj\Debug\Stock_Control.Customer.resources
+C:\Projects\University\Software Engineering 2\Stock-Control--Combined\Stock Control\Stock Control\obj\Debug\Stock_Control.AddVendor.resources
+C:\Projects\University\Software Engineering 2\Stock-Control--Combined\Stock Control\Stock Control\obj\Debug\Stock_Control.Customer.resources
+C:\Projects\University\Software Engineering 2\Stock-Control--Combined\Stock Control\Stock Control\obj\Debug\Stock_Control.Orders.resources
+C:\Projects\University\Software Engineering 2\Stock-Control--Combined\Stock Control\Stock Control\obj\Debug\Stock_Control.ProductOrder.resources
+C:\Projects\University\Software Engineering 2\Stock-Control--Combined\Stock Control\Stock Control\obj\Debug\Stock_Control.Restock.resources
+C:\Projects\University\Software Engineering 2\Stock-Control--Combined\Stock Control\Stock Control\obj\Debug\Stock_Control.ProductCategories.resources

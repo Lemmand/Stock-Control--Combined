@@ -19,7 +19,7 @@ namespace Stock_Control
             DisplayData();
         }
      
-        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-A9R1KT2\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
+        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-7P495QJ\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
 
         private void btn_update_Click(object sender, EventArgs e)
         {

@@ -61,5 +61,26 @@ namespace Stock_Control
             customermenu.MdiParent = this;
             customermenu.Show();
         }
+
+        private void restockToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Restock restockmenu = new Restock();
+            restockmenu.MdiParent = this;
+            restockmenu.Show();
+        }
+
+        private void createOrderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Orders ordermenu = new Orders();
+            ordermenu.MdiParent = this;
+            ordermenu.Show();
+        }
+
+        private void productCategoriesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ProductCategories productcatmenu = new ProductCategories();
+            productcatmenu.MdiParent = this;
+            productcatmenu.Show();
+        }
     }
 }
