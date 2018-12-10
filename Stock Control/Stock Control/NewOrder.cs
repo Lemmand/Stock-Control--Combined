@@ -21,12 +21,15 @@ namespace Stock_Control
             dt2 = ((DataTable)dgv_products.DataSource).Clone();
             dgv_prod_add.Hide();
 
+
+
+
         }
 
-        SqlCommand cmd,cmd2;
-        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-JOBDLMB\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
-        SqlDataAdapter adapt;
-        DataTable dt1, dt2;
+        SqlCommand cmd,cmd2,cmd3;
+        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-3S627FD\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
+        SqlDataAdapter adapt,adapt2,adapt3;
+        DataTable dt1, dt2,dtpo;
         int userid = 1234;
         int vendorid = 2345;
 
@@ -51,13 +54,18 @@ namespace Stock_Control
                 cmd.Parameters.AddWithValue("@CHR_notes", txt_orderNotes.Text);
                 cmd.Parameters.AddWithValue("@NUM_userID", userid);
                 cmd.Parameters.AddWithValue("@NUM_tax", txt_tax.Text);
-                cmd.Parameters.AddWithValue("@DT_delivery_date", txt_deliveryDate.Text);
-                cmd.Parameters.AddWithValue("@DT_created_date", txt_createdDate.Text = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz"));
+
+                DateTime myDateTime = DateTime.Now;
+                string sqlFormattedDate = myDateTime.ToString("yyyy-MM-dd HH:mm:ss.fff");
+                cmd.Parameters.AddWithValue("@DT_delivery_date", sqlFormattedDate);
+                
+                cmd.Parameters.AddWithValue("@DT_created_date", sqlFormattedDate);
+
                 cmd.Parameters.AddWithValue("@CHR_terms", txt_terms.Text);
                 cmd.Parameters.AddWithValue("@CHR_deliveryAddress", txt_deliveryAddress.Text);
                 cmd.Parameters.AddWithValue("@NUM_vendorID", vendorid);
                 cmd.Parameters.AddWithValue("@FT_total", txt_total.Text);
-                cmd.Parameters.AddWithValue("@NUM_POstatus", "Created");
+                cmd.Parameters.AddWithValue("@NUM_POstatus", 1);
 
 
 
@@ -66,11 +74,17 @@ namespace Stock_Control
                 ClearData();
             }
 
-            cmd2 = new SqlCommand("INSERT INTO TBL_PO_ITEMS (NUM_POID, NUM_itemID, NUM_quantity)" +
-                "VALUES(@NUM_POID, @NUM_itemID, @NUM_quantity)", conn);
+
+            cmd3 = new SqlCommand("SELECT TOP 1 * FROM TBL_PURCHASE_ORDER ORDER BY NUM_POID DESC", conn);
+            adapt3 = new SqlDataAdapter(cmd3);
+            dtpo = new DataTable();
+            adapt3.Fill(dtpo);
+            int number = dtpo.Rows[0].Field<int>(0);
+
+            cmd2 = new SqlCommand(" SET IDENTITY_INSERT TBL_PO_ITEMS ON INSERT INTO TBL_PO_ITEMS (NUM_POID, NUM_itemID, NUM_quantity)VALUES(@NUM_POID, @NUM_itemID, @NUM_quantity)", conn);
             foreach (DataGridViewRow row in dgv_prod_add.Rows)
             {
-                cmd2.Parameters.AddWithValue("@NUM_POID", row.Cells["NUM_POID"].Value);
+                cmd2.Parameters.AddWithValue("@NUM_POID", number);
                 cmd2.Parameters.AddWithValue("@NUM_itemID", row.Cells["NUM_itemID"].Value);
                 cmd2.Parameters.AddWithValue("@NUM_quantity", row.Cells["NUM_quantity"].Value);
                 cmd2.ExecuteNonQuery();

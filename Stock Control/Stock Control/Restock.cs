@@ -24,7 +24,7 @@ namespace Stock_Control
         SqlDataReader myReaderGetProductName = null;
         SqlCommand cmd;
         SqlDataAdapter adapt;
-        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-JOBDLMB\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
+        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-3S627FD\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
 
         private void btn_checkOrder_Click(object sender, EventArgs e)
         {
