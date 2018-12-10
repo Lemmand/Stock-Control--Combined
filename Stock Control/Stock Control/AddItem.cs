@@ -12,7 +12,7 @@ namespace Stock_Control
 {
     public partial class AddItem : Form
     {
-        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-7P495QJ\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
+        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-JOBDLMB\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
         SqlCommand cmd;
         SqlDataAdapter adapt;
         int supplier_ID, vat_category_ID, prod_category_ID;
@@ -129,8 +129,8 @@ namespace Stock_Control
         private void btn_confirm_Click_1(object sender, EventArgs e)
         {
             con.Open();
-            cmd = new SqlCommand("INSERT INTO TBL_SC_ITEMS (CHR_item_name, FT_price, NUM_manufacturer, NUM_Vat_category , NUM_Quantity, CHR_Product_saleflag, NUM_Product_category) " +
-                "VALUES (@CHR_item_name, @FT_price, @NUM_manufacturer, @NUM_Vat_category , @NUM_Quantity, @CHR_Product_saleflag, @NUM_Product_category)", con);
+            cmd = new SqlCommand("INSERT INTO TBL_SC_ITEMS (CHR_item_name, FT_price, NUM_manufacturer, NUM_Vat_category , NUM_Quantity, CHR_Product_saleflag, NUM_Product_category, NUM_Barcode) " +
+                "VALUES (@CHR_item_name, @FT_price, @NUM_manufacturer, @NUM_Vat_category , @NUM_Quantity, @CHR_Product_saleflag, @NUM_Product_category, @NUM_Barcode)", con);
 
             if (txt_name.Text == "")
             {
@@ -169,6 +169,8 @@ namespace Stock_Control
                 cmd.Parameters.AddWithValue("@NUM_Product_category", prod_category_ID);
                 cmd.Parameters.AddWithValue("@FT_price", txt_price.Text);
                 cmd.Parameters.AddWithValue("@NUM_manufacturer", supplier_ID);
+                cmd.Parameters.AddWithValue("@NUM_Barcode", txt_barcode.Text);
+                    
 
                 if (cb_saleflag.SelectedIndex == 0)
                 {

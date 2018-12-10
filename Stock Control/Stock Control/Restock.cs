@@ -16,6 +16,7 @@ namespace Stock_Control
         public Restock()
         {
             InitializeComponent();
+            disp_Restock_View();
         }
 
         SqlDataReader myReaderReceived = null;
@@ -23,7 +24,7 @@ namespace Stock_Control
         SqlDataReader myReaderGetProductName = null;
         SqlCommand cmd;
         SqlDataAdapter adapt;
-        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-7P495QJ\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
+        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-JOBDLMB\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
 
         private void btn_checkOrder_Click(object sender, EventArgs e)
         {
@@ -94,5 +95,53 @@ namespace Stock_Control
             conn.Close();
         }
 
+        private void btn_checkOrder_Click_1(object sender, EventArgs e)
+        {
+            SqlCommand cmdSelectOrdered = new SqlCommand("SELECT NUM_quantity FROM TBL_PO_ITEMS WHERE NUM_itemID = '" + txt_productID.Text + "'", conn);
+
+            conn.Open();
+            myReaderOrdered = cmdSelectOrdered.ExecuteReader();
+            while (myReaderOrdered.Read())
+            {
+                lbl_amountOrdered.Text = (myReaderOrdered["NUM_quantity"].ToString());
+            }
+            conn.Close();
+
+            conn.Open();
+            SqlCommand cmdSelectReceived = new SqlCommand("SELECT NUM_received FROM TBL_RECEIVED_ITEMS WHERE NUM_itemID = '" + txt_productID.Text + "'", conn);
+            myReaderReceived = cmdSelectReceived.ExecuteReader();
+            while (myReaderReceived.Read())
+            {
+                lbl_amountReceived.Text = (myReaderReceived["NUM_received"].ToString());
+            }
+            conn.Close();
+
+            conn.Open();
+            SqlCommand cmdSelectProductName = new SqlCommand("SELECT CHR_item_name FROM TBL_SC_ITEMS WHERE NUM_itemID = '" + txt_productID.Text + "'", conn);
+            myReaderGetProductName = cmdSelectProductName.ExecuteReader();
+            while (myReaderGetProductName.Read())
+            {
+                lbl_productName.Text = (myReaderGetProductName["CHR_item_name"].ToString());
+            }
+            conn.Close();
+
+            if (lbl_amountOrdered.Text == lbl_amountReceived.Text)
+            {
+                SqlCommand cmdUpdateStock = new SqlCommand("UPDATE TBL_SC_ITEMS SET NUM_Quantity = NUM_Quantity + '" + lbl_amountReceived.Text + "'", conn);
+                conn.Open();
+                cmdUpdateStock.ExecuteNonQuery();
+                lbl_orderStatus.Text = "Complete";
+                conn.Close();
+            }
+            else
+            {
+                lbl_orderStatus.Text = "Incomplete";
+            }
+        }
+
+        private void btn_refresh_Click_1(object sender, EventArgs e)
+        {
+            disp_Restock_View();
+        }
     }
 }

@@ -13,7 +13,7 @@ namespace Stock_Control
 {
     public partial class Search : Form
     {
-        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-7P495QJ\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
+        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-JOBDLMB\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
         SqlCommand cmd;
         SqlDataAdapter adapt;
 
@@ -29,7 +29,7 @@ namespace Stock_Control
 
             con.Open();
             DataTable dt1 = new DataTable();
-            adapt = new SqlDataAdapter("Select NUM_itemID,CHR_item_name,FT_price,CHR_info, NUM_manufacturer,NUM_Quantity, CHR_Product_saleflag,TBL_VAT_CATEGORIES.NUM_Vat_rate, NUM_Product_category from TBL_SC_ITEMS FULL JOIN TBL_VAT_CATEGORIES ON TBL_SC_ITEMS.NUM_Vat_category=TBL_VAT_CATEGORIES.NUM_Vat_id", con);
+            adapt = new SqlDataAdapter("Select NUM_itemID,CHR_item_name,FT_price,CHR_info, NUM_manufacturer,NUM_Quantity, CHR_Product_saleflag,TBL_VAT_CATEGORIES.NUM_Vat_rate, NUM_Product_category, NUM_Barcode from TBL_SC_ITEMS FULL JOIN TBL_VAT_CATEGORIES ON TBL_SC_ITEMS.NUM_Vat_category=TBL_VAT_CATEGORIES.NUM_Vat_id", con);
             adapt.Fill(dt1);
             dgv_products.DataSource = dt1;
 
@@ -44,7 +44,8 @@ namespace Stock_Control
             dgv_products.Columns[6].HeaderCell.Value = "Sale Flag";
             dgv_products.Columns[7].HeaderCell.Value = "VAT";
             dgv_products.Columns[8].HeaderCell.Value = "Category";
-    
+            dgv_products.Columns[9].HeaderCell.Value = "Barcode";
+
             con.Close();
         }
 
@@ -60,7 +61,18 @@ namespace Stock_Control
                 con.Open();
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "SELECT * FROM TBL_SC_ITEMS where NUM_itemID = '" + txt_prod_id.Text + "'";
+                int textisnum = 0;
+                if (txt_prod_id.Text.All(Char.IsLetter) || txt_prod_id.Text.Contains(" "))
+                {
+                    textisnum = 0;
+                }
+                else
+                {
+                    textisnum = Int32.Parse(txt_prod_id.Text);
+                }
+
+                cmd.CommandText = "SELECT * FROM TBL_SC_ITEMS WHERE NUM_itemID = " + textisnum + " OR NUM_Barcode = " + textisnum + " OR CHR_item_name = '" + txt_prod_id.Text.ToString() + "'";
+
                 cmd.ExecuteNonQuery();
                 DataTable dt = new DataTable();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -68,7 +80,13 @@ namespace Stock_Control
                 dgv_products.DataSource = dt;
                 con.Close();
                 ClearData();
+                if (dgv_products.Rows.Count == 0)
+                {
+                    MessageBox.Show("No Results Found");
+                    DisplayData();
+                }
             }
+
         }
 
         private void ClearData()
@@ -99,6 +117,11 @@ namespace Stock_Control
                 DisplayData();
                 ClearData();
             }
+        }
+
+        private void dgv_products_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

@@ -44,10 +44,10 @@
             // 
             // btn_refresh
             // 
-            this.btn_refresh.Location = new System.Drawing.Point(314, 192);
-            this.btn_refresh.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_refresh.Location = new System.Drawing.Point(419, 236);
+            this.btn_refresh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_refresh.Name = "btn_refresh";
-            this.btn_refresh.Size = new System.Drawing.Size(108, 19);
+            this.btn_refresh.Size = new System.Drawing.Size(144, 23);
             this.btn_refresh.TabIndex = 98;
             this.btn_refresh.Text = "Refresh";
             this.btn_refresh.UseVisualStyleBackColor = true;
@@ -56,19 +56,19 @@
             // dgvSuppliers
             // 
             this.dgvSuppliers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSuppliers.Location = new System.Drawing.Point(253, 227);
-            this.dgvSuppliers.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvSuppliers.Location = new System.Drawing.Point(178, 263);
+            this.dgvSuppliers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvSuppliers.Name = "dgvSuppliers";
             this.dgvSuppliers.RowTemplate.Height = 24;
-            this.dgvSuppliers.Size = new System.Drawing.Size(247, 226);
+            this.dgvSuppliers.Size = new System.Drawing.Size(604, 278);
             this.dgvSuppliers.TabIndex = 97;
             // 
             // btn_deleteProduct
             // 
-            this.btn_deleteProduct.Location = new System.Drawing.Point(392, 155);
-            this.btn_deleteProduct.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_deleteProduct.Location = new System.Drawing.Point(523, 191);
+            this.btn_deleteProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_deleteProduct.Name = "btn_deleteProduct";
-            this.btn_deleteProduct.Size = new System.Drawing.Size(108, 19);
+            this.btn_deleteProduct.Size = new System.Drawing.Size(144, 23);
             this.btn_deleteProduct.TabIndex = 96;
             this.btn_deleteProduct.Text = "Delete Product";
             this.btn_deleteProduct.UseVisualStyleBackColor = true;
@@ -76,10 +76,10 @@
             // 
             // btn_addProduct
             // 
-            this.btn_addProduct.Location = new System.Drawing.Point(253, 155);
-            this.btn_addProduct.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_addProduct.Location = new System.Drawing.Point(337, 191);
+            this.btn_addProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_addProduct.Name = "btn_addProduct";
-            this.btn_addProduct.Size = new System.Drawing.Size(108, 19);
+            this.btn_addProduct.Size = new System.Drawing.Size(144, 23);
             this.btn_addProduct.TabIndex = 95;
             this.btn_addProduct.Text = "Add Product";
             this.btn_addProduct.UseVisualStyleBackColor = true;
@@ -90,71 +90,69 @@
             this.label12.AutoSize = true;
             this.label12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(253, -2);
+            this.label12.Location = new System.Drawing.Point(324, 9);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(297, 26);
+            this.label12.Size = new System.Drawing.Size(372, 31);
             this.label12.TabIndex = 94;
             this.label12.Text = "Please enter item and Quantity";
             // 
             // txt_quantity
             // 
-            this.txt_quantity.Location = new System.Drawing.Point(314, 109);
-            this.txt_quantity.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_quantity.Location = new System.Drawing.Point(419, 134);
+            this.txt_quantity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_quantity.Name = "txt_quantity";
-            this.txt_quantity.Size = new System.Drawing.Size(76, 20);
+            this.txt_quantity.Size = new System.Drawing.Size(100, 22);
             this.txt_quantity.TabIndex = 93;
             // 
             // txt_itemID
             // 
-            this.txt_itemID.Location = new System.Drawing.Point(314, 84);
-            this.txt_itemID.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_itemID.Location = new System.Drawing.Point(419, 103);
+            this.txt_itemID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_itemID.Name = "txt_itemID";
-            this.txt_itemID.Size = new System.Drawing.Size(76, 20);
+            this.txt_itemID.Size = new System.Drawing.Size(100, 22);
             this.txt_itemID.TabIndex = 92;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(250, 111);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(333, 137);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 13);
+            this.label3.Size = new System.Drawing.Size(65, 17);
             this.label3.TabIndex = 91;
             this.label3.Text = "Quantity:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(250, 84);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(333, 103);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 13);
+            this.label2.Size = new System.Drawing.Size(55, 17);
             this.label2.TabIndex = 90;
             this.label2.Text = "Item ID:";
             // 
             // txt_orderID
             // 
-            this.txt_orderID.Location = new System.Drawing.Point(314, 54);
-            this.txt_orderID.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_orderID.Location = new System.Drawing.Point(419, 66);
+            this.txt_orderID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_orderID.Name = "txt_orderID";
-            this.txt_orderID.Size = new System.Drawing.Size(76, 20);
+            this.txt_orderID.Size = new System.Drawing.Size(100, 22);
             this.txt_orderID.TabIndex = 89;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(250, 56);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(333, 69);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 13);
+            this.label1.Size = new System.Drawing.Size(66, 17);
             this.label1.TabIndex = 88;
             this.label1.Text = "Order ID:";
             // 
             // ProductOrder
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(810, 463);
+            this.ClientSize = new System.Drawing.Size(1080, 570);
             this.Controls.Add(this.btn_refresh);
             this.Controls.Add(this.dgvSuppliers);
             this.Controls.Add(this.btn_deleteProduct);
@@ -166,6 +164,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txt_orderID);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ProductOrder";
             this.Text = "ProductOrder";
             ((System.ComponentModel.ISupportInitialize)(this.dgvSuppliers)).EndInit();

@@ -16,10 +16,12 @@ namespace Stock_Control
         public ProductOrder()
         {
             InitializeComponent();
+            disp_Orders_View();
+
         }
 
         SqlCommand cmd;
-        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-7P495QJ\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
+        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-JOBDLMB\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
 
         private void btn_addProduct_Click(object sender, EventArgs e)
         {

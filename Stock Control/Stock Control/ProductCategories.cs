@@ -14,13 +14,14 @@ namespace Stock_Control
     public partial class ProductCategories : Form
     {
 
-        SqlConnection sqlCon = new SqlConnection(@"Data Source=DESKTOP-7P495QJ\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
+        SqlConnection sqlCon = new SqlConnection(@"Data Source=DESKTOP-JOBDLMB\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
         SqlDataReader myReader = null;
         SqlCommand cmd;
 
         public ProductCategories()
         {
             InitializeComponent();
+            disp_dataProductCategories();
         }
 
         public void disp_dataProductCategories()
@@ -67,7 +68,7 @@ namespace Stock_Control
 
             SqlCommand cmd = sqlCon.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "delete from TBL_PRODUCT_CATEGORIES where NUM_ID ='" + txtCategoryId.Text + "'";
+            cmd.CommandText = "delete from TBL_PRODUCT_CATEGORIES where NUM_Category_id ='" + txtCategoryId.Text + "'";
             cmd.ExecuteNonQuery();
 
             sqlCon.Close();

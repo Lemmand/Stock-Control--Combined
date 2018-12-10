@@ -61,3 +61,45 @@ C:\Projects\University\Software Engineering 2\Stock-Control--Combined\Stock Cont
 C:\Projects\University\Software Engineering 2\Stock-Control--Combined\Stock Control\Stock Control\obj\Debug\Stock_Control.ProductOrder.resources
 C:\Projects\University\Software Engineering 2\Stock-Control--Combined\Stock Control\Stock Control\obj\Debug\Stock_Control.Restock.resources
 C:\Projects\University\Software Engineering 2\Stock-Control--Combined\Stock Control\Stock Control\obj\Debug\Stock_Control.ProductCategories.resources
+C:\Users\Michael\Desktop\Stock-Control--Combined-master (1)\Stock-Control--Combined-master\Stock Control\Stock Control\bin\Debug\Stock Control.exe.config
+C:\Users\Michael\Desktop\Stock-Control--Combined-master (1)\Stock-Control--Combined-master\Stock Control\Stock Control\bin\Debug\Stock Control.exe
+C:\Users\Michael\Desktop\Stock-Control--Combined-master (1)\Stock-Control--Combined-master\Stock Control\Stock Control\bin\Debug\Stock Control.pdb
+C:\Users\Michael\Desktop\Stock-Control--Combined-master (1)\Stock-Control--Combined-master\Stock Control\Stock Control\obj\Debug\Stock Control.csprojResolveAssemblyReference.cache
+C:\Users\Michael\Desktop\Stock-Control--Combined-master (1)\Stock-Control--Combined-master\Stock Control\Stock Control\obj\Debug\Stock_Control.AddItem.resources
+C:\Users\Michael\Desktop\Stock-Control--Combined-master (1)\Stock-Control--Combined-master\Stock Control\Stock Control\obj\Debug\Stock_Control.AddVendor.resources
+C:\Users\Michael\Desktop\Stock-Control--Combined-master (1)\Stock-Control--Combined-master\Stock Control\Stock Control\obj\Debug\Stock_Control.Customer.resources
+C:\Users\Michael\Desktop\Stock-Control--Combined-master (1)\Stock-Control--Combined-master\Stock Control\Stock Control\obj\Debug\Stock_Control.Form1.resources
+C:\Users\Michael\Desktop\Stock-Control--Combined-master (1)\Stock-Control--Combined-master\Stock Control\Stock Control\obj\Debug\Stock_Control.InteractiveReport.resources
+C:\Users\Michael\Desktop\Stock-Control--Combined-master (1)\Stock-Control--Combined-master\Stock Control\Stock Control\obj\Debug\Stock_Control.MainMenu.resources
+C:\Users\Michael\Desktop\Stock-Control--Combined-master (1)\Stock-Control--Combined-master\Stock Control\Stock Control\obj\Debug\Stock_Control.Orders.resources
+C:\Users\Michael\Desktop\Stock-Control--Combined-master (1)\Stock-Control--Combined-master\Stock Control\Stock Control\obj\Debug\Stock_Control.ProductCategories.resources
+C:\Users\Michael\Desktop\Stock-Control--Combined-master (1)\Stock-Control--Combined-master\Stock Control\Stock Control\obj\Debug\Stock_Control.ProductOrder.resources
+C:\Users\Michael\Desktop\Stock-Control--Combined-master (1)\Stock-Control--Combined-master\Stock Control\Stock Control\obj\Debug\Stock_Control.Properties.Resources.resources
+C:\Users\Michael\Desktop\Stock-Control--Combined-master (1)\Stock-Control--Combined-master\Stock Control\Stock Control\obj\Debug\Stock_Control.Restock.resources
+C:\Users\Michael\Desktop\Stock-Control--Combined-master (1)\Stock-Control--Combined-master\Stock Control\Stock Control\obj\Debug\Stock_Control.Search.resources
+C:\Users\Michael\Desktop\Stock-Control--Combined-master (1)\Stock-Control--Combined-master\Stock Control\Stock Control\obj\Debug\Stock Control.csproj.GenerateResource.Cache
+C:\Users\Michael\Desktop\Stock-Control--Combined-master (1)\Stock-Control--Combined-master\Stock Control\Stock Control\obj\Debug\Stock Control.csproj.CoreCompileInputs.cache
+C:\Users\Michael\Desktop\Stock-Control--Combined-master (1)\Stock-Control--Combined-master\Stock Control\Stock Control\obj\Debug\Stock Control.exe
+C:\Users\Michael\Desktop\Stock-Control--Combined-master (1)\Stock-Control--Combined-master\Stock Control\Stock Control\obj\Debug\Stock Control.pdb
+C:\Users\Michael\Desktop\Stock-Control--Combined-master (1)\Stock-Control--Combined-master\Stock Control\Stock Control\obj\Debug\Stock_Control.NewOrder.resources
+C:\Users\Andrew\Desktop\Software-Engineering-2-master\Stock-Control--Combined-master (1)\Stock-Control--Combined-master\Stock Control\Stock Control\bin\Debug\Stock Control.exe.config
+C:\Users\Andrew\Desktop\Software-Engineering-2-master\Stock-Control--Combined-master (1)\Stock-Control--Combined-master\Stock Control\Stock Control\bin\Debug\Stock Control.exe
+C:\Users\Andrew\Desktop\Software-Engineering-2-master\Stock-Control--Combined-master (1)\Stock-Control--Combined-master\Stock Control\Stock Control\bin\Debug\Stock Control.pdb
+C:\Users\Andrew\Desktop\Software-Engineering-2-master\Stock-Control--Combined-master (1)\Stock-Control--Combined-master\Stock Control\Stock Control\obj\Debug\Stock Control.csprojAssemblyReference.cache
+C:\Users\Andrew\Desktop\Software-Engineering-2-master\Stock-Control--Combined-master (1)\Stock-Control--Combined-master\Stock Control\Stock Control\obj\Debug\Stock_Control.AddItem.resources
+C:\Users\Andrew\Desktop\Software-Engineering-2-master\Stock-Control--Combined-master (1)\Stock-Control--Combined-master\Stock Control\Stock Control\obj\Debug\Stock_Control.AddVendor.resources
+C:\Users\Andrew\Desktop\Software-Engineering-2-master\Stock-Control--Combined-master (1)\Stock-Control--Combined-master\Stock Control\Stock Control\obj\Debug\Stock_Control.Customer.resources
+C:\Users\Andrew\Desktop\Software-Engineering-2-master\Stock-Control--Combined-master (1)\Stock-Control--Combined-master\Stock Control\Stock Control\obj\Debug\Stock_Control.Form1.resources
+C:\Users\Andrew\Desktop\Software-Engineering-2-master\Stock-Control--Combined-master (1)\Stock-Control--Combined-master\Stock Control\Stock Control\obj\Debug\Stock_Control.InteractiveReport.resources
+C:\Users\Andrew\Desktop\Software-Engineering-2-master\Stock-Control--Combined-master (1)\Stock-Control--Combined-master\Stock Control\Stock Control\obj\Debug\Stock_Control.MainMenu.resources
+C:\Users\Andrew\Desktop\Software-Engineering-2-master\Stock-Control--Combined-master (1)\Stock-Control--Combined-master\Stock Control\Stock Control\obj\Debug\Stock_Control.NewOrder.resources
+C:\Users\Andrew\Desktop\Software-Engineering-2-master\Stock-Control--Combined-master (1)\Stock-Control--Combined-master\Stock Control\Stock Control\obj\Debug\Stock_Control.Orders.resources
+C:\Users\Andrew\Desktop\Software-Engineering-2-master\Stock-Control--Combined-master (1)\Stock-Control--Combined-master\Stock Control\Stock Control\obj\Debug\Stock_Control.ProductCategories.resources
+C:\Users\Andrew\Desktop\Software-Engineering-2-master\Stock-Control--Combined-master (1)\Stock-Control--Combined-master\Stock Control\Stock Control\obj\Debug\Stock_Control.ProductOrder.resources
+C:\Users\Andrew\Desktop\Software-Engineering-2-master\Stock-Control--Combined-master (1)\Stock-Control--Combined-master\Stock Control\Stock Control\obj\Debug\Stock_Control.Properties.Resources.resources
+C:\Users\Andrew\Desktop\Software-Engineering-2-master\Stock-Control--Combined-master (1)\Stock-Control--Combined-master\Stock Control\Stock Control\obj\Debug\Stock_Control.Restock.resources
+C:\Users\Andrew\Desktop\Software-Engineering-2-master\Stock-Control--Combined-master (1)\Stock-Control--Combined-master\Stock Control\Stock Control\obj\Debug\Stock_Control.Search.resources
+C:\Users\Andrew\Desktop\Software-Engineering-2-master\Stock-Control--Combined-master (1)\Stock-Control--Combined-master\Stock Control\Stock Control\obj\Debug\Stock Control.csproj.GenerateResource.cache
+C:\Users\Andrew\Desktop\Software-Engineering-2-master\Stock-Control--Combined-master (1)\Stock-Control--Combined-master\Stock Control\Stock Control\obj\Debug\Stock Control.csproj.CoreCompileInputs.cache
+C:\Users\Andrew\Desktop\Software-Engineering-2-master\Stock-Control--Combined-master (1)\Stock-Control--Combined-master\Stock Control\Stock Control\obj\Debug\Stock Control.exe
+C:\Users\Andrew\Desktop\Software-Engineering-2-master\Stock-Control--Combined-master (1)\Stock-Control--Combined-master\Stock Control\Stock Control\obj\Debug\Stock Control.pdb

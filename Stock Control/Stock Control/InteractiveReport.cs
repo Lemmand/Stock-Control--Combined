@@ -13,7 +13,7 @@ namespace Stock_Control
 {
     public partial class InteractiveReport : Form
     {
-        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-7P495QJ\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
+        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-JOBDLMB\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
         SqlCommand cmd;
         SqlDataAdapter adapt;
         int ID = 0;
@@ -42,6 +42,7 @@ namespace Stock_Control
             dataGridView1.Columns[2].HeaderCell.Value = "Quantity";
             dataGridView1.Columns[3].HeaderCell.Value = "Price";
             dataGridView1.Columns[4].HeaderCell.Value = "Product Category";
+            dataGridView1.Columns[5].HeaderCell.Value = "Barcode";
             dataGridView2.Hide();
         } 
         private void DisplayData()
@@ -49,7 +50,7 @@ namespace Stock_Control
             con.Open();
             DataTable dt1 = new DataTable();
             DataTable dt2 = new DataTable();
-            adapt = new SqlDataAdapter("Select NUM_itemID, CHR_item_name, NUM_Quantity, FT_price, .TBL_PRODUCT_CATEGORIES.CHR_Category_name from TBL_SC_ITEMS FULL JOIN TBL_PRODUCT_CATEGORIES ON TBL_SC_ITEMS.NUM_Product_category=TBL_PRODUCT_CATEGORIES.NUM_Category_id", con);
+            adapt = new SqlDataAdapter("Select NUM_itemID, CHR_item_name, NUM_Quantity, FT_price, .TBL_PRODUCT_CATEGORIES.CHR_Category_name, NUM_Barcode from TBL_SC_ITEMS FULL JOIN TBL_PRODUCT_CATEGORIES ON TBL_SC_ITEMS.NUM_Product_category=TBL_PRODUCT_CATEGORIES.NUM_Category_id", con);
             adapt.Fill(dt1);
             dataGridView1.DataSource = dt1;
             con.Close();

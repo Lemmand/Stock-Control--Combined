@@ -50,6 +50,8 @@
             this.dgv_prod_cat = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
             this.cb_saleflag = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txt_barcode = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_suppliers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_vat_cat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_prod_cat)).BeginInit();
@@ -59,9 +61,10 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(62, 345);
+            this.label4.Location = new System.Drawing.Point(83, 425);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(62, 13);
+            this.label4.Size = new System.Drawing.Size(81, 17);
             this.label4.TabIndex = 33;
             this.label4.Text = "Supplier ID:";
             // 
@@ -69,17 +72,19 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(72, 214);
+            this.label5.Location = new System.Drawing.Point(96, 263);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(31, 13);
+            this.label5.Size = new System.Drawing.Size(40, 17);
             this.label5.TabIndex = 32;
             this.label5.Text = "Price";
             // 
             // txt_price
             // 
-            this.txt_price.Location = new System.Drawing.Point(75, 241);
+            this.txt_price.Location = new System.Drawing.Point(100, 297);
+            this.txt_price.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txt_price.Name = "txt_price";
-            this.txt_price.Size = new System.Drawing.Size(199, 20);
+            this.txt_price.Size = new System.Drawing.Size(264, 22);
             this.txt_price.TabIndex = 31;
             // 
             // label3
@@ -87,9 +92,10 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(316, 9);
+            this.label3.Location = new System.Drawing.Point(421, 11);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(198, 29);
+            this.label3.Size = new System.Drawing.Size(243, 36);
             this.label3.TabIndex = 30;
             this.label3.Text = "ADD PRODUCT";
             // 
@@ -97,9 +103,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(72, 145);
+            this.label2.Location = new System.Drawing.Point(96, 178);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 13);
+            this.label2.Size = new System.Drawing.Size(114, 17);
             this.label2.TabIndex = 29;
             this.label2.Text = "Product Quantity";
             // 
@@ -107,33 +114,37 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(72, 72);
+            this.label1.Location = new System.Drawing.Point(96, 89);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 13);
+            this.label1.Size = new System.Drawing.Size(98, 17);
             this.label1.TabIndex = 28;
             this.label1.Text = "Product Name";
             // 
             // txt_quantity
             // 
-            this.txt_quantity.Location = new System.Drawing.Point(75, 173);
+            this.txt_quantity.Location = new System.Drawing.Point(100, 213);
+            this.txt_quantity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txt_quantity.Name = "txt_quantity";
-            this.txt_quantity.Size = new System.Drawing.Size(199, 20);
+            this.txt_quantity.Size = new System.Drawing.Size(264, 22);
             this.txt_quantity.TabIndex = 27;
             // 
             // txt_name
             // 
-            this.txt_name.Location = new System.Drawing.Point(75, 99);
+            this.txt_name.Location = new System.Drawing.Point(100, 122);
+            this.txt_name.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txt_name.Name = "txt_name";
-            this.txt_name.Size = new System.Drawing.Size(199, 20);
+            this.txt_name.Size = new System.Drawing.Size(264, 22);
             this.txt_name.TabIndex = 26;
             // 
             // btn_confirm
             // 
             this.btn_confirm.BackColor = System.Drawing.Color.RoyalBlue;
             this.btn_confirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_confirm.Location = new System.Drawing.Point(315, 195);
+            this.btn_confirm.Location = new System.Drawing.Point(420, 240);
+            this.btn_confirm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_confirm.Name = "btn_confirm";
-            this.btn_confirm.Size = new System.Drawing.Size(199, 66);
+            this.btn_confirm.Size = new System.Drawing.Size(265, 81);
             this.btn_confirm.TabIndex = 25;
             this.btn_confirm.Text = "Submit";
             this.btn_confirm.UseVisualStyleBackColor = false;
@@ -146,10 +157,11 @@
             this.dgv_suppliers.BackgroundColor = System.Drawing.Color.SteelBlue;
             this.dgv_suppliers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_suppliers.GridColor = System.Drawing.Color.SteelBlue;
-            this.dgv_suppliers.Location = new System.Drawing.Point(12, 425);
+            this.dgv_suppliers.Location = new System.Drawing.Point(16, 523);
+            this.dgv_suppliers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgv_suppliers.Name = "dgv_suppliers";
             this.dgv_suppliers.ReadOnly = true;
-            this.dgv_suppliers.Size = new System.Drawing.Size(776, 146);
+            this.dgv_suppliers.Size = new System.Drawing.Size(1035, 180);
             this.dgv_suppliers.TabIndex = 44;
             this.dgv_suppliers.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_suppliers_RowHeaderMouseClick);
             // 
@@ -157,18 +169,20 @@
             // 
             this.lbl_supplier.AutoSize = true;
             this.lbl_supplier.ForeColor = System.Drawing.Color.White;
-            this.lbl_supplier.Location = new System.Drawing.Point(130, 345);
+            this.lbl_supplier.Location = new System.Drawing.Point(173, 425);
+            this.lbl_supplier.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_supplier.Name = "lbl_supplier";
-            this.lbl_supplier.Size = new System.Drawing.Size(0, 13);
+            this.lbl_supplier.Size = new System.Drawing.Size(0, 17);
             this.lbl_supplier.TabIndex = 45;
             // 
             // btn_show_suppliers
             // 
             this.btn_show_suppliers.BackColor = System.Drawing.Color.RoyalBlue;
             this.btn_show_suppliers.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_show_suppliers.Location = new System.Drawing.Point(65, 368);
+            this.btn_show_suppliers.Location = new System.Drawing.Point(87, 453);
+            this.btn_show_suppliers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_show_suppliers.Name = "btn_show_suppliers";
-            this.btn_show_suppliers.Size = new System.Drawing.Size(82, 41);
+            this.btn_show_suppliers.Size = new System.Drawing.Size(109, 50);
             this.btn_show_suppliers.TabIndex = 46;
             this.btn_show_suppliers.Text = "Show Suppliers";
             this.btn_show_suppliers.UseVisualStyleBackColor = false;
@@ -178,9 +192,10 @@
             // 
             this.btn_show_vat.BackColor = System.Drawing.Color.RoyalBlue;
             this.btn_show_vat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_show_vat.Location = new System.Drawing.Point(176, 370);
+            this.btn_show_vat.Location = new System.Drawing.Point(235, 455);
+            this.btn_show_vat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_show_vat.Name = "btn_show_vat";
-            this.btn_show_vat.Size = new System.Drawing.Size(83, 39);
+            this.btn_show_vat.Size = new System.Drawing.Size(111, 48);
             this.btn_show_vat.TabIndex = 47;
             this.btn_show_vat.Text = "Show Vat Categories";
             this.btn_show_vat.UseVisualStyleBackColor = false;
@@ -190,9 +205,10 @@
             // 
             this.btn_shw_prod_cat.BackColor = System.Drawing.Color.RoyalBlue;
             this.btn_shw_prod_cat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_shw_prod_cat.Location = new System.Drawing.Point(292, 372);
+            this.btn_shw_prod_cat.Location = new System.Drawing.Point(389, 458);
+            this.btn_shw_prod_cat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_shw_prod_cat.Name = "btn_shw_prod_cat";
-            this.btn_shw_prod_cat.Size = new System.Drawing.Size(95, 37);
+            this.btn_shw_prod_cat.Size = new System.Drawing.Size(127, 46);
             this.btn_shw_prod_cat.TabIndex = 48;
             this.btn_shw_prod_cat.Text = "Show Product Categories";
             this.btn_shw_prod_cat.UseVisualStyleBackColor = false;
@@ -202,18 +218,20 @@
             // 
             this.lbl_vat_cat.AutoSize = true;
             this.lbl_vat_cat.ForeColor = System.Drawing.Color.White;
-            this.lbl_vat_cat.Location = new System.Drawing.Point(236, 345);
+            this.lbl_vat_cat.Location = new System.Drawing.Point(315, 425);
+            this.lbl_vat_cat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_vat_cat.Name = "lbl_vat_cat";
-            this.lbl_vat_cat.Size = new System.Drawing.Size(0, 13);
+            this.lbl_vat_cat.Size = new System.Drawing.Size(0, 17);
             this.lbl_vat_cat.TabIndex = 50;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(173, 345);
+            this.label10.Location = new System.Drawing.Point(231, 425);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(57, 13);
+            this.label10.Size = new System.Drawing.Size(73, 17);
             this.label10.TabIndex = 49;
             this.label10.Text = "VAT Rate:";
             // 
@@ -221,18 +239,20 @@
             // 
             this.lbl_prod_cat.AutoSize = true;
             this.lbl_prod_cat.ForeColor = System.Drawing.Color.White;
-            this.lbl_prod_cat.Location = new System.Drawing.Point(387, 345);
+            this.lbl_prod_cat.Location = new System.Drawing.Point(516, 425);
+            this.lbl_prod_cat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_prod_cat.Name = "lbl_prod_cat";
-            this.lbl_prod_cat.Size = new System.Drawing.Size(0, 13);
+            this.lbl_prod_cat.Size = new System.Drawing.Size(0, 17);
             this.lbl_prod_cat.TabIndex = 52;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(289, 345);
+            this.label12.Location = new System.Drawing.Point(385, 425);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(92, 13);
+            this.label12.Size = new System.Drawing.Size(122, 17);
             this.label12.TabIndex = 51;
             this.label12.Text = "Product Category:";
             // 
@@ -243,10 +263,11 @@
             this.dgv_vat_cat.BackgroundColor = System.Drawing.Color.SteelBlue;
             this.dgv_vat_cat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_vat_cat.GridColor = System.Drawing.Color.SteelBlue;
-            this.dgv_vat_cat.Location = new System.Drawing.Point(12, 425);
+            this.dgv_vat_cat.Location = new System.Drawing.Point(16, 523);
+            this.dgv_vat_cat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgv_vat_cat.Name = "dgv_vat_cat";
             this.dgv_vat_cat.ReadOnly = true;
-            this.dgv_vat_cat.Size = new System.Drawing.Size(776, 146);
+            this.dgv_vat_cat.Size = new System.Drawing.Size(1035, 180);
             this.dgv_vat_cat.TabIndex = 53;
             this.dgv_vat_cat.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_vat_cat_RowHeaderMouseClick);
             // 
@@ -257,10 +278,11 @@
             this.dgv_prod_cat.BackgroundColor = System.Drawing.Color.SteelBlue;
             this.dgv_prod_cat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_prod_cat.GridColor = System.Drawing.Color.SteelBlue;
-            this.dgv_prod_cat.Location = new System.Drawing.Point(12, 425);
+            this.dgv_prod_cat.Location = new System.Drawing.Point(16, 523);
+            this.dgv_prod_cat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgv_prod_cat.Name = "dgv_prod_cat";
             this.dgv_prod_cat.ReadOnly = true;
-            this.dgv_prod_cat.Size = new System.Drawing.Size(776, 146);
+            this.dgv_prod_cat.Size = new System.Drawing.Size(1164, 180);
             this.dgv_prod_cat.TabIndex = 54;
             this.dgv_prod_cat.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_prod_cat_RowHeaderMouseClick);
             // 
@@ -268,9 +290,10 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(312, 72);
+            this.label6.Location = new System.Drawing.Point(416, 89);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(51, 13);
+            this.label6.Size = new System.Drawing.Size(67, 17);
             this.label6.TabIndex = 55;
             this.label6.Text = "Sale Flag";
             // 
@@ -281,17 +304,39 @@
             "Buy",
             "Sell",
             "Buy&Sell"});
-            this.cb_saleflag.Location = new System.Drawing.Point(310, 99);
+            this.cb_saleflag.Location = new System.Drawing.Point(413, 122);
+            this.cb_saleflag.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cb_saleflag.Name = "cb_saleflag";
-            this.cb_saleflag.Size = new System.Drawing.Size(121, 21);
+            this.cb_saleflag.Size = new System.Drawing.Size(160, 24);
             this.cb_saleflag.TabIndex = 56;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(96, 334);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(61, 17);
+            this.label7.TabIndex = 58;
+            this.label7.Text = "Barcode";
+            // 
+            // txt_barcode
+            // 
+            this.txt_barcode.Location = new System.Drawing.Point(100, 369);
+            this.txt_barcode.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_barcode.Name = "txt_barcode";
+            this.txt_barcode.Size = new System.Drawing.Size(264, 22);
+            this.txt_barcode.TabIndex = 57;
             // 
             // AddItem
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
-            this.ClientSize = new System.Drawing.Size(937, 615);
+            this.ClientSize = new System.Drawing.Size(1249, 757);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.txt_barcode);
             this.Controls.Add(this.cb_saleflag);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dgv_prod_cat);
@@ -315,6 +360,7 @@
             this.Controls.Add(this.txt_name);
             this.Controls.Add(this.btn_confirm);
             this.ForeColor = System.Drawing.Color.White;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "AddItem";
             this.Text = "AddItem";
             ((System.ComponentModel.ISupportInitialize)(this.dgv_suppliers)).EndInit();
@@ -348,5 +394,7 @@
         private System.Windows.Forms.DataGridView dgv_prod_cat;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cb_saleflag;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txt_barcode;
     }
 }
