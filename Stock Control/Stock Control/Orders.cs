@@ -22,7 +22,7 @@ namespace Stock_Control
 
         SqlDataReader myReader = null;
         SqlCommand cmd;
-        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-3S627FD\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
+        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-JOBDLMB\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
         SqlDataAdapter adapt;
         int userid = 1234;
         int vendorid = 2345;

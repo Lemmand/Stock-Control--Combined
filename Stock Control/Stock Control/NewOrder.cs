@@ -27,7 +27,7 @@ namespace Stock_Control
         }
 
         SqlCommand cmd,cmd2,cmd3;
-        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-3S627FD\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
+        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-JOBDLMB\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
         SqlDataAdapter adapt,adapt2,adapt3;
         DataTable dt1, dt2,dtpo;
         int userid = 1234;
@@ -81,9 +81,14 @@ namespace Stock_Control
             adapt3.Fill(dtpo);
             int number = dtpo.Rows[0].Field<int>(0);
 
-            cmd2 = new SqlCommand(" SET IDENTITY_INSERT TBL_PO_ITEMS ON INSERT INTO TBL_PO_ITEMS (NUM_POID, NUM_itemID, NUM_quantity)VALUES(@NUM_POID, @NUM_itemID, @NUM_quantity)", conn);
+
+          
+            cmd2 = new SqlCommand("INSERT INTO TBL_PO_ITEMS (NUM_POID, NUM_itemID, NUM_quantity)VALUES(@NUM_POID, @NUM_itemID, @NUM_quantity)", conn);
+            cmd2.Parameters.Clear();
+
             foreach (DataGridViewRow row in dgv_prod_add.Rows)
             {
+                cmd2.Parameters.Clear();
                 cmd2.Parameters.AddWithValue("@NUM_POID", number);
                 cmd2.Parameters.AddWithValue("@NUM_itemID", row.Cells["NUM_itemID"].Value);
                 cmd2.Parameters.AddWithValue("@NUM_quantity", row.Cells["NUM_quantity"].Value);
@@ -186,11 +191,16 @@ namespace Stock_Control
             {
                 dt2.ImportRow(((DataTable)dgv_products.DataSource).Rows[row.Index]);
                 
+                dgv_products.Rows.RemoveAt(row.Index);
+
+                dt2.AcceptChanges();
+                dgv_prod_add.Show();
+                dgv_prod_add.DataSource = dt2;
+
             }
-            dt2.AcceptChanges();
-            dgv_prod_add.Show();
-            dgv_prod_add.DataSource = dt2;
             
+
+
             conn.Close();
         }
 
