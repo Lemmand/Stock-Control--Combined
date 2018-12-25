@@ -32,7 +32,7 @@ namespace Stock_Control
         int ID = 0;
         SqlDataAdapter adapt;
         SqlCommand cmd;
-        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-JOBDLMB\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
+        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-3S627FD\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
 
 
 

@@ -29,7 +29,7 @@ namespace Stock_Control
         }
 
         SqlCommand cmd,cmd2,cmd3;
-        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-JOBDLMB\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
+        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-3S627FD\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
         SqlDataAdapter adapt,adapt2,adapt3;
         DataTable dt1, dt2,dtpo;
         int userid = 1234;
