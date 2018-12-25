@@ -12,15 +12,19 @@ using System.Data.SqlClient;
 namespace Stock_Control
 {
     public partial class Customer : Form
-    {        
-            public Customer()
+    {
+        
+
+        public Customer()
             {
                 InitializeComponent();
                 disp_DataCustomers();
             }
-            SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-JOBDLMB\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
+            SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-3S627FD\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
+            SqlDataReader myReader = null;
+            
 
-            public void disp_DataCustomers()
+        public void disp_DataCustomers()
             {
                 conn.Open();
                 SqlCommand cmd = conn.CreateCommand();
@@ -73,7 +77,7 @@ namespace Stock_Control
             else
             {
                 conn.Open();
-                String query = "UPDATE TBL_CUSTOMERS SET NUM_phone = '" + textBox_phone.Text + "' ,CHR_address_ ='" + textBox_address + "',CHR_firstname ='" + textBox_name.Text + "',CHR_surname ='" + textBox_surname.Text + "',CHR_country ='" + textBox_country.Text + "',CHR_city ='" + textBox_city.Text + "',CHR_email ='" + textBox_email + "' WHERE NUM_Customer_ID = " + textBox_id.Text + "";
+                String query = "UPDATE TBL_CUSTOMERS SET NUM_phone = '" + textBox_phone.Text + "' ,CHR_address_ ='" + textBox_address.Text + "',CHR_firstname ='" + textBox_name.Text + "',CHR_surname ='" + textBox_surname.Text + "',CHR_country ='" + textBox_country.Text + "',CHR_city ='" + textBox_city.Text + "',CHR_email ='" + textBox_email.Text  + "' WHERE NUM_Customer_ID = " + textBox_id.Text + "";
 
                 SqlDataAdapter SDA = new SqlDataAdapter(query, conn);
 
@@ -86,8 +90,10 @@ namespace Stock_Control
             }
 
             private void btn_search_Click(object sender, EventArgs e)
+        {
+            try
             {
-                if (textBox_id.Text == "")
+                if (txtSearchIDCustomer.Text == "")
                 {
                     MessageBox.Show("Please Enter A Value In Customer ID");
                 }
@@ -96,15 +102,45 @@ namespace Stock_Control
                     conn.Open();
                     SqlCommand cmd = conn.CreateCommand();
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "select * from TBL_CUSTOMERS where NUM_Customer_ID = '" + textBox_id.Text + "'";
+                    cmd.CommandText = "select * from TBL_CUSTOMERS where NUM_Customer_ID = '" + txtSearchIDCustomer.Text + "'";
                     cmd.ExecuteNonQuery();
                     DataTable dt = new DataTable();
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
                     da.Fill(dt);
                     dataGridView1.DataSource = dt;
                     conn.Close();
-                    ClearData();
+                    
+
+                    //Displays the searched id attributes to textboxes
+                    SqlCommand cmdSelect = new SqlCommand("SELECT * FROM TBL_CUSTOMERS WHERE NUM_Customer_ID = '" + txtSearchIDCustomer.Text + "'", conn);
+
+                    conn.Open();
+
+                    myReader = cmdSelect.ExecuteReader();
+                    
+                    while (myReader.Read())
+                    {
+
+                        textBox_id.Text = (myReader["NUM_Customer_ID"].ToString());
+                        textBox_name.Text = (myReader["CHR_firstname"].ToString());
+                        textBox_surname.Text = (myReader["CHR_surname"].ToString());
+                        textBox_country.Text = (myReader["CHR_country"].ToString());
+                        textBox_city.Text = (myReader["CHR_city"].ToString());
+                        textBox_address.Text = (myReader["CHR_address_"].ToString());
+                        textBox_email.Text = (myReader["CHR_email"].ToString());
+                        textBox_phone.Text = (myReader["NUM_phone"].ToString());
+
+                    }
+
+                    conn.Close();
+
                 }
+                }
+                catch (Exception)
+                {
+                MessageBox.Show("Error. Please insert an existing id to search.");
+                }
+
             }
 
             private void ClearData()
@@ -131,6 +167,21 @@ namespace Stock_Control
                 textBox_phone.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
                 textBox_surname.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
             }
+
+        private void btn_clear_Click(object sender, EventArgs e)
+        {
+            ClearData();
         }
+
+        private void Customer_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            disp_DataCustomers();
+        }
+    }
     }
 

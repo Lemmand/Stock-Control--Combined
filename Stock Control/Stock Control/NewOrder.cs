@@ -13,6 +13,10 @@ namespace Stock_Control
 {
     public partial class NewOrder : Form
     {
+        int quantity = 0;
+        int count = 0;
+        double sum;
+
         public NewOrder()
         {
             InitializeComponent();
@@ -20,14 +24,12 @@ namespace Stock_Control
             DisplayDataProducts();
             dt2 = ((DataTable)dgv_products.DataSource).Clone();
             dgv_prod_add.Hide();
-
-
-
+            dt2.Columns.Add(new DataColumn("Quantity", typeof(int)));
 
         }
 
         SqlCommand cmd,cmd2,cmd3;
-        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-JOBDLMB\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
+        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-3S627FD\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
         SqlDataAdapter adapt,adapt2,adapt3;
         DataTable dt1, dt2,dtpo;
         int userid = 1234;
@@ -36,43 +38,30 @@ namespace Stock_Control
         private void btn_addOrder_Click(object sender, EventArgs e)
         {
             conn.Open();
-            cmd = new SqlCommand("INSERT INTO TBL_PURCHASE_ORDER (CHR_notes,NUM_tax, DT_delivery_date, DT_created_date, CHR_terms, CHR_deliveryAddress, NUM_vendorID, FT_total, NUM_POstatus)" +
-                "VALUES (@CHR_notes, @NUM_tax, @DT_delivery_date, @DT_created_date, @CHR_terms, @CHR_deliveryAddress, @NUM_vendorID, @FT_total, @NUM_POstatus)", conn);
+            cmd = new SqlCommand("INSERT INTO TBL_PURCHASE_ORDER (CHR_notes, DT_created_date, CHR_deliveryAddress, NUM_vendorID, FT_total, CHR_POstatus)" +
+                "VALUES (@CHR_notes, @DT_created_date, @CHR_deliveryAddress, @NUM_vendorID, @FT_total, @CHR_POstatus)", conn);
 
 
-            if (txt_deliveryDate.Text == "")
 
-            {
-                MessageBox.Show("Please fill necessary fields");
-            }
-
-            else
-            {
-
+           
 
 
                 cmd.Parameters.AddWithValue("@CHR_notes", txt_orderNotes.Text);
-                cmd.Parameters.AddWithValue("@NUM_userID", userid);
-                cmd.Parameters.AddWithValue("@NUM_tax", txt_tax.Text);
-
                 DateTime myDateTime = DateTime.Now;
                 string sqlFormattedDate = myDateTime.ToString("yyyy-MM-dd HH:mm:ss.fff");
-                cmd.Parameters.AddWithValue("@DT_delivery_date", sqlFormattedDate);
                 
                 cmd.Parameters.AddWithValue("@DT_created_date", sqlFormattedDate);
-
-                cmd.Parameters.AddWithValue("@CHR_terms", txt_terms.Text);
                 cmd.Parameters.AddWithValue("@CHR_deliveryAddress", txt_deliveryAddress.Text);
-                cmd.Parameters.AddWithValue("@NUM_vendorID", vendorid);
-                cmd.Parameters.AddWithValue("@FT_total", txt_total.Text);
-                cmd.Parameters.AddWithValue("@NUM_POstatus", 1);
+                cmd.Parameters.AddWithValue("@NUM_vendorID", txt_vendorID.Text);
+                cmd.Parameters.AddWithValue("@FT_total", sum);
+                cmd.Parameters.AddWithValue("@CHR_POstatus", "Created");
 
 
 
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Success");
                 ClearData();
-            }
+            
 
 
             cmd3 = new SqlCommand("SELECT TOP 1 * FROM TBL_PURCHASE_ORDER ORDER BY NUM_POID DESC", conn);
@@ -83,16 +72,21 @@ namespace Stock_Control
 
 
           
-            cmd2 = new SqlCommand("INSERT INTO TBL_PO_ITEMS (NUM_POID, NUM_itemID, NUM_quantity)VALUES(@NUM_POID, @NUM_itemID, @NUM_quantity)", conn);
+            cmd2 = new SqlCommand("SET IDENTITY_INSERT TBL_PO_ITEMS ON INSERT INTO TBL_PO_ITEMS (NUM_POID, NUM_itemID, NUM_quantity)VALUES(@NUM_POID, @NUM_itemID, @NUM_quantity)", conn);
             cmd2.Parameters.Clear();
 
             foreach (DataGridViewRow row in dgv_prod_add.Rows)
             {
-                cmd2.Parameters.Clear();
-                cmd2.Parameters.AddWithValue("@NUM_POID", number);
-                cmd2.Parameters.AddWithValue("@NUM_itemID", row.Cells["NUM_itemID"].Value);
-                cmd2.Parameters.AddWithValue("@NUM_quantity", row.Cells["NUM_quantity"].Value);
-                cmd2.ExecuteNonQuery();
+                try { 
+                    cmd2.Parameters.Clear();
+                    cmd2.Parameters.AddWithValue("@NUM_POID", number);
+                    cmd2.Parameters.AddWithValue("@NUM_itemID", row.Cells["NUM_itemID"].Value);
+                    cmd2.Parameters.AddWithValue("@NUM_quantity", row.Cells["Quantity"].Value);
+                    cmd2.ExecuteNonQuery();
+                }catch
+                {
+                    MessageBox.Show("An error has occured");
+                }
             }
                 conn.Close();
 
@@ -101,14 +95,16 @@ namespace Stock_Control
         private void ClearData()
         {
             txt_orderNotes.Text = "";
-            txt_tax.Text = "";
-            txt_deliveryDate.Text = "";
-            txt_createdDate.Text = "";
-            txt_terms.Text = "";
             txt_deliveryAddress.Text = "";
             txt_vendorID.Text = "";
-            txt_total.Text = "";
         }
+
+
+        private void dgv_products_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
 
         private void DisplayDataVendors()
         {
@@ -186,22 +182,40 @@ namespace Stock_Control
         {   
             dgv_suppliers.Hide();
             dgv_prod_add.Show();
-            conn.Open();
-            foreach (DataGridViewRow row in dgv_products.SelectedRows)
+
+            if (txt_quantity.Text == "")
             {
-                dt2.ImportRow(((DataTable)dgv_products.DataSource).Rows[row.Index]);
-                
-                dgv_products.Rows.RemoveAt(row.Index);
+                MessageBox.Show("Please Enter Product Quantity First");
+            }
+            else
+            {
+                quantity = Int32.Parse(txt_quantity.Text);
+
+                conn.Open();
+                foreach (DataGridViewRow row in dgv_products.SelectedRows)
+                {
+                    dt2.ImportRow(((DataTable)dgv_products.DataSource).Rows[row.Index]);
+                }
 
                 dt2.AcceptChanges();
                 dgv_prod_add.Show();
                 dgv_prod_add.DataSource = dt2;
 
+
+                dgv_prod_add.Rows[count].Cells["Quantity"].Value = quantity;
+                count++;
+                
+                conn.Close();
+
+                sum = 0;
+                for (int i = 0; i < dgv_prod_add.Rows.Count; ++i)
+                {
+                    sum += (Convert.ToInt32(dgv_prod_add.Rows[i].Cells[2].Value) * Convert.ToInt32(dgv_prod_add.Rows[i].Cells[10].Value));
+                }
+                txt_total.Text = sum.ToString();
+                quantity = 0;
+                txt_quantity.Text = "";
             }
-            
-
-
-            conn.Close();
         }
 
         private void dgv_prod_add_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)

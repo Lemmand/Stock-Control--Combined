@@ -71,9 +71,9 @@ namespace Stock_Control
 
         private void createOrderToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Orders ordermenu = new Orders();
+            /*Orders ordermenu = new Orders();
             ordermenu.MdiParent = this;
-            ordermenu.Show();
+            ordermenu.Show();*/
         }
 
         private void productCategoriesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -81,6 +81,57 @@ namespace Stock_Control
             ProductCategories productcatmenu = new ProductCategories();
             productcatmenu.MdiParent = this;
             productcatmenu.Show();
+        }
+
+        private void productOrderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VatCategories vatCat = new VatCategories();
+            vatCat.MdiParent = this;
+            vatCat.Show();
+        }
+
+        private void addProductToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddItem addItem = new AddItem();
+            addItem.MdiParent = this;
+            addItem.Show();
+        }
+
+        private void productSearchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Search search = new Search();
+            search.MdiParent = this;
+            search.Show();
+        }
+
+        private void productCategoriesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ProductCategories productcatmenu = new ProductCategories();
+            productcatmenu.MdiParent = this;
+            productcatmenu.Show();
+        }
+
+        private void orderViewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Orders ordermenu = new Orders();
+            ordermenu.MdiParent = this;
+            ordermenu.Show();
+        }
+
+        private void createOrderToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            
+            
+            NewOrder newordermenu = new NewOrder();
+            newordermenu.MdiParent = this;
+            newordermenu.Show();
+        }
+
+        private void fillCreatedOrderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ProductOrder FillOrder = new ProductOrder(0,0);
+            FillOrder.MdiParent = this;
+            FillOrder.Show();
         }
     }
 }

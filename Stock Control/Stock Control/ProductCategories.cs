@@ -14,10 +14,10 @@ namespace Stock_Control
     public partial class ProductCategories : Form
     {
 
-        SqlConnection sqlCon = new SqlConnection(@"Data Source=DESKTOP-JOBDLMB\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
+        SqlConnection sqlCon = new SqlConnection(@"Data Source=DESKTOP-3S627FD\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
         SqlDataReader myReader = null;
         SqlCommand cmd;
-
+        
         public ProductCategories()
         {
             InitializeComponent();
@@ -46,18 +46,29 @@ namespace Stock_Control
 
         private void btnAddProductCategory_Click(object sender, EventArgs e)
         {
-            sqlCon.Open();
+            try
+            {
+                sqlCon.Open();
 
-            SqlCommand cmd = sqlCon.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "insert into TBL_PRODUCT_CATEGORIES values('" + txtCategoryId.Text + "', '" + txtCategoryName.Text + "', '" + txtCategoryDescription.Text + "' )";
-            cmd.ExecuteNonQuery();
+                SqlCommand cmd = sqlCon.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "insert into TBL_PRODUCT_CATEGORIES values( NUM_Category_id '" + txtCategoryId.Text + "', '" + txtCategoryName.Text + 
+                    "', '" + txtCategoryDescription.Text + "' )";
+                cmd.ExecuteNonQuery();
 
-            sqlCon.Close();
+                sqlCon.Close();
 
-            disp_dataProductCategories();
+                disp_dataProductCategories();
 
-            MessageBox.Show("Product Category Added Successfully!", "Product Categories");
+                MessageBox.Show("Product Category Added Successfully!");
+            }
+            catch (Exception)
+            {
+                sqlCon.Close();
+                MessageBox.Show("Error Found. Please ensure that the ID you inserted is unique. If this problem ensist, " +
+                    "please contact your administrator");
+            }
+            
 
 
         }
@@ -78,24 +89,44 @@ namespace Stock_Control
 
         private void btnSearchProductCategory_Click(object sender, EventArgs e)
         {
-            SqlCommand cmdSelect = new SqlCommand("SELECT * FROM TBL_PRODUCT_CATEGORIES WHERE NUM_Category_id = '" + txtSearchProductCategory.Text + "'", sqlCon);
 
-            sqlCon.Open();
-
-            myReader = cmdSelect.ExecuteReader();
-
-
-
-            while (myReader.Read())
+            if (txtSearchProductCategory.Text == "")
             {
-
-                txtCategoryId.Text = (myReader["NUM_Category_id"].ToString());
-                txtCategoryName.Text = (myReader["CHR_Category_name"].ToString());
-                txtCategoryDescription.Text = (myReader["CHR_Description"].ToString());
-
+                MessageBox.Show("Please Enter A Product Category ID above the Search button");
             }
+            else
+            {
+                //Displays the searched id attributes to datagridview
+                sqlCon.Open();
+                SqlCommand cmd = sqlCon.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select * from TBL_PRODUCT_CATEGORIES WHERE NUM_Category_id = '" + txtSearchProductCategory.Text + "'";
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                dataGridViewProductCategories.DataSource = dt;
+                sqlCon.Close();
 
-            sqlCon.Close();
+                //Displays the searched id attributes to textboxes
+                SqlCommand cmdSelect = new SqlCommand("SELECT * FROM TBL_PRODUCT_CATEGORIES WHERE NUM_Category_id = '" + txtSearchProductCategory.Text + "'", sqlCon);
+
+                sqlCon.Open();
+
+                myReader = cmdSelect.ExecuteReader();
+                
+                while (myReader.Read())
+                {
+
+                    txtCategoryId.Text = (myReader["NUM_Category_id"].ToString());
+                    txtCategoryName.Text = (myReader["CHR_Category_name"].ToString());
+                    txtCategoryDescription.Text = (myReader["CHR_Description"].ToString());
+
+                }
+
+                sqlCon.Close();
+            }
+            
 
 
         }
@@ -108,31 +139,46 @@ namespace Stock_Control
             txtSearchProductCategory.Text = "";
 
         }
-
+        
         private void btnEditProductCategory_Click(object sender, EventArgs e)
         {
-            cmd = new SqlCommand("UPDATE TBL_PRODUCT_CATEGORIES set " +
-                   "CHR_Category_name = '" + txtCategoryName.Text + "', " +
-                   "CHR_Description = '" + txtCategoryDescription.Text + "'", sqlCon);
-
-            sqlCon.Open();
-            if (txtCategoryId.Text == "")
+            try
             {
-                MessageBox.Show("Insert the Category ID to Update", "Product Categories");
-            }
-            else
-            {
-                cmd.ExecuteNonQuery();
+                if (txtCategoryId.Text == "")
+                {
+                    MessageBox.Show("Insert the Category ID to Update");
+                }
+                else
+                {
+                    cmd = new SqlCommand("UPDATE TBL_PRODUCT_CATEGORIES set " +
+                       "CHR_Category_name = '" + txtCategoryName.Text + "', " +
+                       "CHR_Description = '" + txtCategoryDescription.Text + "' WHERE NUM_Category_id = " + txtCategoryId.Text + "", sqlCon);
 
-                MessageBox.Show("Product Category entry updated Successfully", "Product Categories");
-                ClearData();
+                    sqlCon.Open();
+
+                    cmd.ExecuteNonQuery();
+                    sqlCon.Close();
+                    disp_dataProductCategories();
+                    MessageBox.Show("Product Category entry updated Successfully");
+                    ClearData();
+                }
             }
-            sqlCon.Close();
+            catch (Exception)
+            {
+                MessageBox.Show("Error found. Please restart the application and try again.");
+            }
+            
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             disp_dataProductCategories();
+        }
+
+        private void ProductCategories_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

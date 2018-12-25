@@ -123,6 +123,11 @@ namespace Stock_Control
             txt_City.Text = "";
             txt_Address.Text = "";
         }
+
+        private void AddVendor_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

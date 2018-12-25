@@ -24,10 +24,15 @@ namespace Stock_Control
         SqlDataReader myReaderGetProductName = null;
         SqlCommand cmd;
         SqlDataAdapter adapt;
-        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-3S627FD\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
+        SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-ITRM35PP\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
 
         private void btn_checkOrder_Click(object sender, EventArgs e)
         {
+            if (txt_productID.Text == "")
+            {
+                MessageBox.Show("Please enter a value in product ID");
+            }
+            
             SqlCommand cmdSelectOrdered = new SqlCommand("SELECT NUM_quantity FROM TBL_PO_ITEMS WHERE NUM_itemID = '" + txt_productID.Text + "'", conn);
 
             conn.Open();
@@ -80,16 +85,16 @@ namespace Stock_Control
         {
             conn.Open();
             DataTable dt1 = new DataTable();
-            adapt = new SqlDataAdapter("Select * from TBL_RECEIVED_ITEMS", conn);
+            adapt = new SqlDataAdapter("Select * from TBL_PO_ITEMS", conn);
             adapt.Fill(dt1);
             gridviewRestock.DataSource = dt1;
 
             this.gridviewRestock.DataSource = dt1;
 
-            gridviewRestock.Columns[0].HeaderCell.Value = "RRID";
+            gridviewRestock.Columns[0].HeaderCell.Value = "Product Order ID";
             gridviewRestock.Columns[1].HeaderCell.Value = "Item ID";
             gridviewRestock.Columns[2].HeaderCell.Value = "Quantity";
-            gridviewRestock.Columns[3].HeaderCell.Value = "Received";
+            
 
 
             conn.Close();

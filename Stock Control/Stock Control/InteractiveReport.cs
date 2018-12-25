@@ -13,7 +13,7 @@ namespace Stock_Control
 {
     public partial class InteractiveReport : Form
     {
-        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-JOBDLMB\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
+        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-3S627FD\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
         SqlCommand cmd;
         SqlDataAdapter adapt;
         int ID = 0;
@@ -50,12 +50,39 @@ namespace Stock_Control
             con.Open();
             DataTable dt1 = new DataTable();
             DataTable dt2 = new DataTable();
-            adapt = new SqlDataAdapter("Select NUM_itemID, CHR_item_name, NUM_Quantity, FT_price, .TBL_PRODUCT_CATEGORIES.CHR_Category_name, NUM_Barcode from TBL_SC_ITEMS FULL JOIN TBL_PRODUCT_CATEGORIES ON TBL_SC_ITEMS.NUM_Product_category=TBL_PRODUCT_CATEGORIES.NUM_Category_id", con);
+            adapt = new SqlDataAdapter("Select NUM_itemID, CHR_item_name, NUM_Quantity, FT_price, .TBL_PRODUCT_CATEGORIES.CHR_Category_name, NUM_Barcode from TBL_SC_ITEMS INNER JOIN TBL_PRODUCT_CATEGORIES ON TBL_SC_ITEMS.NUM_Product_category=TBL_PRODUCT_CATEGORIES.NUM_Category_id", con);
             adapt.Fill(dt1);
             dataGridView1.DataSource = dt1;
             con.Close();
         }
-  
+
+        private void btn_Difference_Click(object sender, EventArgs e)
+        {
+            //con.Open();
+
+            //adapt = new SqlDataAdapter("Select NUM_Quantity from TBL_SC_ITEMS where NUM_Quantity = '"+txt_quant_found.Text+"'", con);
+
+            try
+            {
+                int a, b, c;
+                a = Convert.ToInt32(lbl_quantity.Text);
+                b = Convert.ToInt32(txt_quant_found.Text);
+
+
+                c = a - b;
+
+                lbl_Difference.Text = Convert.ToString(c);
+            }
+            catch (Exception)
+            {
+                //nothing
+                MessageBox.Show("Please select an item from the table below, fill the quantity found and press the difference button.");
+            }
+
+            
+
+        }
+
         private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             ID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
