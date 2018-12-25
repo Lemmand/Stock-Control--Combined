@@ -29,7 +29,7 @@ namespace Stock_Control
         }
 
         SqlCommand cmd,cmd2,cmd3;
-        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-3S627FD\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
+        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-JOBDLMB\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
         SqlDataAdapter adapt,adapt2,adapt3;
         DataTable dt1, dt2,dtpo;
         int userid = 1234;
@@ -41,11 +41,6 @@ namespace Stock_Control
             cmd = new SqlCommand("INSERT INTO TBL_PURCHASE_ORDER (CHR_notes, DT_created_date, CHR_deliveryAddress, NUM_vendorID, FT_total, CHR_POstatus)" +
                 "VALUES (@CHR_notes, @DT_created_date, @CHR_deliveryAddress, @NUM_vendorID, @FT_total, @CHR_POstatus)", conn);
 
-
-
-           
-
-
                 cmd.Parameters.AddWithValue("@CHR_notes", txt_orderNotes.Text);
                 DateTime myDateTime = DateTime.Now;
                 string sqlFormattedDate = myDateTime.ToString("yyyy-MM-dd HH:mm:ss.fff");
@@ -55,8 +50,6 @@ namespace Stock_Control
                 cmd.Parameters.AddWithValue("@NUM_vendorID", txt_vendorID.Text);
                 cmd.Parameters.AddWithValue("@FT_total", sum);
                 cmd.Parameters.AddWithValue("@CHR_POstatus", "Created");
-
-
 
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Success");
@@ -69,9 +62,7 @@ namespace Stock_Control
             dtpo = new DataTable();
             adapt3.Fill(dtpo);
             int number = dtpo.Rows[0].Field<int>(0);
-
-
-          
+    
             cmd2 = new SqlCommand("SET IDENTITY_INSERT TBL_PO_ITEMS ON INSERT INTO TBL_PO_ITEMS (NUM_POID, NUM_itemID, NUM_quantity)VALUES(@NUM_POID, @NUM_itemID, @NUM_quantity)", conn);
             cmd2.Parameters.Clear();
 

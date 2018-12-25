@@ -16,137 +16,100 @@ namespace Stock_Control
         public Restock()
         {
             InitializeComponent();
-            disp_Restock_View();
+            DisplayInvoices();
         }
 
-        SqlDataReader myReaderReceived = null;
-        SqlDataReader myReaderOrdered = null;
-        SqlDataReader myReaderGetProductName = null;
-        SqlCommand cmd;
+        SqlDataReader myReader = null;
+        SqlCommand cmd,cmd2;
+        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-JOBDLMB\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
         SqlDataAdapter adapt;
-        SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-ITRM35PP\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
+        int invoiceid = -1;
 
-        private void btn_checkOrder_Click(object sender, EventArgs e)
-        {
-            if (txt_productID.Text == "")
-            {
-                MessageBox.Show("Please enter a value in product ID");
-            }
-            
-            SqlCommand cmdSelectOrdered = new SqlCommand("SELECT NUM_quantity FROM TBL_PO_ITEMS WHERE NUM_itemID = '" + txt_productID.Text + "'", conn);
 
-            conn.Open();
-            myReaderOrdered = cmdSelectOrdered.ExecuteReader();
-            while (myReaderOrdered.Read())
-            {
-                lbl_amountOrdered.Text = (myReaderOrdered["NUM_quantity"].ToString());
-            }
-            conn.Close();
 
-            conn.Open();
-            SqlCommand cmdSelectReceived = new SqlCommand("SELECT NUM_received FROM TBL_RECEIVED_ITEMS WHERE NUM_itemID = '" + txt_productID.Text + "'", conn);
-            myReaderReceived = cmdSelectReceived.ExecuteReader();
-            while (myReaderReceived.Read())
-            {
-                lbl_amountReceived.Text = (myReaderReceived["NUM_received"].ToString());
-            }
-            conn.Close();
-
-            conn.Open();
-            SqlCommand cmdSelectProductName = new SqlCommand("SELECT CHR_item_name FROM TBL_SC_ITEMS WHERE NUM_itemID = '" + txt_productID.Text + "'", conn);
-            myReaderGetProductName = cmdSelectProductName.ExecuteReader();
-            while (myReaderGetProductName.Read())
-            {
-                lbl_productName.Text = (myReaderGetProductName["CHR_item_name"].ToString());
-            }
-            conn.Close();
-
-            if (lbl_amountOrdered.Text == lbl_amountReceived.Text)
-            {
-                SqlCommand cmdUpdateStock = new SqlCommand("UPDATE TBL_SC_ITEMS SET NUM_Quantity = NUM_Quantity + '" + lbl_amountReceived.Text + "'", conn);
-                conn.Open();
-                cmdUpdateStock.ExecuteNonQuery();
-                lbl_orderStatus.Text = "Complete";
-                conn.Close();
-            }
-            else
-            {
-                lbl_orderStatus.Text = "Incomplete";
-            }
-
-        }
-
-        private void btn_refresh_Click(object sender, EventArgs e)
-        {
-            disp_Restock_View();
-        }
-
-        public void disp_Restock_View()
+        public void DisplayInvoices()
         {
             conn.Open();
             DataTable dt1 = new DataTable();
-            adapt = new SqlDataAdapter("Select * from TBL_PO_ITEMS", conn);
+            adapt = new SqlDataAdapter("Select * from TBL_INVOICE", conn);
             adapt.Fill(dt1);
-            gridviewRestock.DataSource = dt1;
+            dgv_invoices.DataSource = dt1;
 
-            this.gridviewRestock.DataSource = dt1;
+            this.dgv_invoices.DataSource = dt1;
 
-            gridviewRestock.Columns[0].HeaderCell.Value = "Product Order ID";
-            gridviewRestock.Columns[1].HeaderCell.Value = "Item ID";
-            gridviewRestock.Columns[2].HeaderCell.Value = "Quantity";
-            
-
+            //dgv_invoices.Columns[0].HeaderCell.Value = "Order ID";
+            //dgv_invoices.Columns[1].HeaderCell.Value = "Notes";
+            //gridvie.Columns[2].HeaderCell.Value = "Delivery Date";
+            //gridviewOrders.Columns[3].HeaderCell.Value = "Created Date";
+            //gridviewOrders.Columns[4].HeaderCell.Value = "Delivery Address";
+            //gridviewOrders.Columns[5].HeaderCell.Value = "Vendor ID";
+            //gridviewOrders.Columns[6].HeaderCell.Value = "Total";
+            //gridviewOrders.Columns[7].HeaderCell.Value = "Status";
 
             conn.Close();
         }
 
-        private void btn_checkOrder_Click_1(object sender, EventArgs e)
+
+        public void DisplayInvoiceItems()
         {
-            SqlCommand cmdSelectOrdered = new SqlCommand("SELECT NUM_quantity FROM TBL_PO_ITEMS WHERE NUM_itemID = '" + txt_productID.Text + "'", conn);
-
             conn.Open();
-            myReaderOrdered = cmdSelectOrdered.ExecuteReader();
-            while (myReaderOrdered.Read())
-            {
-                lbl_amountOrdered.Text = (myReaderOrdered["NUM_quantity"].ToString());
-            }
-            conn.Close();
+            DataTable dt1 = new DataTable();
+            adapt = new SqlDataAdapter("Select * from TBL_INVOICE_ITEMS WHERE NUM_invoiceID =" + invoiceid, conn);
+            adapt.Fill(dt1);
+            dgv_invoice_items.DataSource = dt1;
 
-            conn.Open();
-            SqlCommand cmdSelectReceived = new SqlCommand("SELECT NUM_received FROM TBL_RECEIVED_ITEMS WHERE NUM_itemID = '" + txt_productID.Text + "'", conn);
-            myReaderReceived = cmdSelectReceived.ExecuteReader();
-            while (myReaderReceived.Read())
-            {
-                lbl_amountReceived.Text = (myReaderReceived["NUM_received"].ToString());
-            }
-            conn.Close();
+            this.dgv_invoice_items.DataSource = dt1;
 
-            conn.Open();
-            SqlCommand cmdSelectProductName = new SqlCommand("SELECT CHR_item_name FROM TBL_SC_ITEMS WHERE NUM_itemID = '" + txt_productID.Text + "'", conn);
-            myReaderGetProductName = cmdSelectProductName.ExecuteReader();
-            while (myReaderGetProductName.Read())
-            {
-                lbl_productName.Text = (myReaderGetProductName["CHR_item_name"].ToString());
-            }
-            conn.Close();
+            //dgv_invoices.Columns[0].HeaderCell.Value = "Order ID";
+            //dgv_invoices.Columns[1].HeaderCell.Value = "Notes";
+            //gridvie.Columns[2].HeaderCell.Value = "Delivery Date";
+            //gridviewOrders.Columns[3].HeaderCell.Value = "Created Date";
+            //gridviewOrders.Columns[4].HeaderCell.Value = "Delivery Address";
+            //gridviewOrders.Columns[5].HeaderCell.Value = "Vendor ID";
+            //gridviewOrders.Columns[6].HeaderCell.Value = "Total";
+            //gridviewOrders.Columns[7].HeaderCell.Value = "Status";
 
-            if (lbl_amountOrdered.Text == lbl_amountReceived.Text)
-            {
-                SqlCommand cmdUpdateStock = new SqlCommand("UPDATE TBL_SC_ITEMS SET NUM_Quantity = NUM_Quantity + '" + lbl_amountReceived.Text + "'", conn);
+            conn.Close();
+        }
+
+        private void dgv_invoice_items_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            //txt_order_id.Text = .Rows[e.RowIndex].Cells[0].Value.ToString();
+            //orderid = Int32.Parse(txt_order_id.Text);
+        }
+
+        private void dgv_invoices_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            invoiceid = Int32.Parse(dgv_invoices.Rows[e.RowIndex].Cells[0].Value.ToString());
+            DisplayInvoiceItems();
+        }
+
+        private void btn_add_items_Click(object sender, EventArgs e)
+        {
+
+            cmd2 = new SqlCommand("UPDATE TBL_SC_ITEMS SET NUM_Quantity=@quantity WHERE NUM_itemID=@id", conn);
+            cmd = new SqlCommand("UPDATE TBL_INVOICE SET CHR_Istatus = 'Completed' WHERE NUM_invoiceID="+invoiceid, conn);
+
+            //try
+            //{
                 conn.Open();
-                cmdUpdateStock.ExecuteNonQuery();
-                lbl_orderStatus.Text = "Complete";
-                conn.Close();
-            }
-            else
-            {
-                lbl_orderStatus.Text = "Incomplete";
-            }
+                foreach (DataGridViewRow row in dgv_invoice_items.SelectedRows)
+
+                {
+                    cmd2.Parameters.Clear();
+                    cmd2.Parameters.AddWithValue("@id", row.Cells["NUM_itemID"].Value);
+                    cmd2.Parameters.AddWithValue("@quantity", row.Cells["NUM_quantity"].Value);
+                    cmd2.ExecuteNonQuery();
+                }
+
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Item Quantity Updated Successfully");
+            conn.Close();
+            //}catch
+            //{
+            //    MessageBox.Show("Error Occured");
+            //}
         }
 
-        private void btn_refresh_Click_1(object sender, EventArgs e)
-        {
-            disp_Restock_View();
-        }
     }
 }

@@ -327,3 +327,5 @@ C:\Users\Andrew\Desktop\Stock-Control--Combined-Finished\KJyriacos\Stock-Control
 C:\Users\Andrew\Desktop\Stock-Control--Combined-Finished\KJyriacos\Stock-Control--Combined-master L\Update On Program 24.12.2018\Stock Control\Stock Control\obj\Debug\Stock Control.csproj.CoreCompileInputs.cache
 C:\Users\Andrew\Desktop\Stock-Control--Combined-Finished\KJyriacos\Stock-Control--Combined-master L\Update On Program 24.12.2018\Stock Control\Stock Control\obj\Debug\Stock Control.exe
 C:\Users\Andrew\Desktop\Stock-Control--Combined-Finished\KJyriacos\Stock-Control--Combined-master L\Update On Program 24.12.2018\Stock Control\Stock Control\obj\Debug\Stock Control.pdb
+C:\Projects\University\User Interface\Stock-Control--Combined\Stock Control\Stock Control\obj\Debug\Stock_Control.Invoice.resources
+C:\Projects\University\User Interface\Stock-Control--Combined\Stock Control\Stock Control\obj\Debug\Stock_Control.VatCategories.resources
