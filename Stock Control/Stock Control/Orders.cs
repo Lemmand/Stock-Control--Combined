@@ -21,7 +21,7 @@ namespace Stock_Control
 
         SqlDataReader myReader = null;
         SqlCommand cmd;
-        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-JOBDLMB\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
+        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-3S627FD\SQLEXPRESS;Initial Catalog=AccountsPayable;Integrated Security=True");
         SqlDataAdapter adapt;
         int orderid = -1;
         int vendorid = -1;
@@ -155,7 +155,9 @@ namespace Stock_Control
             else
             {
                 ProductOrder form2 = new ProductOrder(orderid,vendorid);
-                form2.ShowDialog();
+                form2.MdiParent = this.ParentForm;
+                form2.Show();
+
             }
         }
 

@@ -56,6 +56,10 @@
             // 
             // gridviewOrders
             // 
+            this.gridviewOrders.AllowUserToAddRows = false;
+            this.gridviewOrders.AllowUserToDeleteRows = false;
+            this.gridviewOrders.AllowUserToResizeColumns = false;
+            this.gridviewOrders.AllowUserToResizeRows = false;
             this.gridviewOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridviewOrders.Location = new System.Drawing.Point(21, 320);
             this.gridviewOrders.Margin = new System.Windows.Forms.Padding(2);

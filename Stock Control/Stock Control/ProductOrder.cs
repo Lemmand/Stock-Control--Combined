@@ -16,6 +16,7 @@ namespace Stock_Control
 
         int order_id = -1;
         int vendor_id = -1;
+        int product_id = -1;
 
         public ProductOrder(int orderid, int vendorid)
         {
@@ -58,20 +59,28 @@ namespace Stock_Control
 
             else
             {
-                cmd.Parameters.AddWithValue("@NUM_POID", order_id);
-                cmd.Parameters.AddWithValue("@NUM_itemID", txt_itemID.Text);
-                cmd.Parameters.AddWithValue("@NUM_quantity", txt_quantity.Text);
+                try
+                {
+                    cmd.Parameters.AddWithValue("@NUM_POID", order_id);
+                    cmd.Parameters.AddWithValue("@NUM_itemID", txt_itemID.Text);
+                    cmd.Parameters.AddWithValue("@NUM_quantity", txt_quantity.Text);
 
-                cmd.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery();
 
-                MessageBox.Show("Item added Successfully");
+                    MessageBox.Show("Item added Successfully");
 
-                ClearData();
+                    ClearData();
 
 
+                }catch
+                {
+                    MessageBox.Show("Error Occured. Item Might Already Be In Order");
+                }
+            
             }
             conn.Close();
             disp_Orders_View();
+
         }
 
         private void ClearData()
@@ -83,19 +92,38 @@ namespace Stock_Control
 
         private void btn_deleteProduct_Click(object sender, EventArgs e)
         {
-            conn.Open();
+            if (txt_prod_id.Text == "")
+            {
+                MessageBox.Show("Please Select A Product To Delete First");
+            }
+            else
+            {
+                try
+                {
+                    conn.Open();
 
 
-            String query = "DELETE FROM TBL_PO_ITEMS WHERE NUM_POID = " + order_id;
+                    String query = "DELETE FROM TBL_PO_ITEMS WHERE NUM_POID = " + order_id + " AND NUM_itemID = " + product_id + ";";
+                    MessageBox.Show("" + product_id);
 
-            SqlDataAdapter SDA = new SqlDataAdapter(query, conn);
-            SDA.SelectCommand.ExecuteNonQuery();
+                    SqlDataAdapter SDA = new SqlDataAdapter(query, conn);
+                    SDA.SelectCommand.ExecuteNonQuery();
 
-            MessageBox.Show("Deleted Successfully");
+                    MessageBox.Show("Deleted Successfully");
 
-            ClearData();
+                    ClearData();
+                   
+                }
+                catch
+                {
+                    MessageBox.Show("Error Occured");
+                }
+                
+                conn.Close();
 
-            conn.Close();
+            }
+            disp_Orders_View();
+            DisplayData();
         }
 
         private void btn_refresh_Click(object sender, EventArgs e)
@@ -206,6 +234,12 @@ namespace Stock_Control
             }
 
 
+        }
+
+        private void dgvProductOrder_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            txt_prod_id.Text = dgvProductOrder.Rows[e.RowIndex].Cells[1].Value.ToString();
+            product_id = Int32.Parse(txt_prod_id.Text);
         }
     }
 }

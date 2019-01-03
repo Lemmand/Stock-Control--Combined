@@ -33,8 +33,8 @@
             this.dgv_invoice_items = new System.Windows.Forms.DataGridView();
             this.btn_add_items = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txt_search = new System.Windows.Forms.TextBox();
             this.btn_search = new System.Windows.Forms.Button();
+            this.txt_search = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_invoices)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_invoice_items)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -55,8 +55,11 @@
             // 
             this.dgv_invoices.AllowUserToAddRows = false;
             this.dgv_invoices.AllowUserToDeleteRows = false;
+            this.dgv_invoices.AllowUserToResizeColumns = false;
+            this.dgv_invoices.AllowUserToResizeRows = false;
             this.dgv_invoices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_invoices.Location = new System.Drawing.Point(12, 84);
+            this.dgv_invoices.MultiSelect = false;
             this.dgv_invoices.Name = "dgv_invoices";
             this.dgv_invoices.ReadOnly = true;
             this.dgv_invoices.Size = new System.Drawing.Size(592, 150);
@@ -67,8 +70,11 @@
             // 
             this.dgv_invoice_items.AllowUserToAddRows = false;
             this.dgv_invoice_items.AllowUserToDeleteRows = false;
+            this.dgv_invoice_items.AllowUserToResizeColumns = false;
+            this.dgv_invoice_items.AllowUserToResizeRows = false;
             this.dgv_invoice_items.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_invoice_items.Location = new System.Drawing.Point(12, 240);
+            this.dgv_invoice_items.MultiSelect = false;
             this.dgv_invoice_items.Name = "dgv_invoice_items";
             this.dgv_invoice_items.ReadOnly = true;
             this.dgv_invoice_items.Size = new System.Drawing.Size(332, 150);
@@ -96,13 +102,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Search By Invoice OR Order ID";
             // 
-            // txt_search
-            // 
-            this.txt_search.Location = new System.Drawing.Point(18, 22);
-            this.txt_search.Name = "txt_search";
-            this.txt_search.Size = new System.Drawing.Size(100, 20);
-            this.txt_search.TabIndex = 0;
-            // 
             // btn_search
             // 
             this.btn_search.Location = new System.Drawing.Point(134, 20);
@@ -112,6 +111,13 @@
             this.btn_search.Text = "SEARCH";
             this.btn_search.UseVisualStyleBackColor = true;
             this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
+            // 
+            // txt_search
+            // 
+            this.txt_search.Location = new System.Drawing.Point(18, 22);
+            this.txt_search.Name = "txt_search";
+            this.txt_search.Size = new System.Drawing.Size(100, 20);
+            this.txt_search.TabIndex = 0;
             // 
             // Restock
             // 

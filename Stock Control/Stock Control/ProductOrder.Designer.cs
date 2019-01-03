@@ -42,10 +42,13 @@
             this.btn_search_product_id = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txt_prod_id = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductOrder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_refresh
@@ -78,6 +81,7 @@
             this.dgvProductOrder.Size = new System.Drawing.Size(790, 122);
             this.dgvProductOrder.TabIndex = 97;
             this.dgvProductOrder.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSuppliers_CellContentClick);
+            this.dgvProductOrder.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvProductOrder_RowHeaderMouseClick);
             // 
             // btn_deleteProduct
             // 
@@ -223,12 +227,32 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Search Products";
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.txt_prod_id);
+            this.groupBox3.Location = new System.Drawing.Point(21, 318);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(124, 67);
+            this.groupBox3.TabIndex = 113;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Selected Product ID";
+            // 
+            // txt_prod_id
+            // 
+            this.txt_prod_id.Enabled = false;
+            this.txt_prod_id.Location = new System.Drawing.Point(10, 38);
+            this.txt_prod_id.Name = "txt_prod_id";
+            this.txt_prod_id.ReadOnly = true;
+            this.txt_prod_id.Size = new System.Drawing.Size(100, 20);
+            this.txt_prod_id.TabIndex = 0;
+            // 
             // ProductOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.OldLace;
             this.ClientSize = new System.Drawing.Size(851, 579);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvProducts);
@@ -247,6 +271,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -268,5 +294,7 @@
         private System.Windows.Forms.Button btn_search_product_id;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox txt_prod_id;
     }
 }

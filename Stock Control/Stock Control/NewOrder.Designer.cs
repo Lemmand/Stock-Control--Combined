@@ -169,8 +169,11 @@
             // 
             this.dgv_products.AllowUserToAddRows = false;
             this.dgv_products.AllowUserToDeleteRows = false;
+            this.dgv_products.AllowUserToResizeColumns = false;
+            this.dgv_products.AllowUserToResizeRows = false;
             this.dgv_products.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_products.Location = new System.Drawing.Point(16, 191);
+            this.dgv_products.MultiSelect = false;
             this.dgv_products.Name = "dgv_products";
             this.dgv_products.ReadOnly = true;
             this.dgv_products.Size = new System.Drawing.Size(742, 162);
@@ -183,8 +186,11 @@
             // 
             this.dgv_prod_add.AllowUserToAddRows = false;
             this.dgv_prod_add.AllowUserToDeleteRows = false;
+            this.dgv_prod_add.AllowUserToResizeColumns = false;
+            this.dgv_prod_add.AllowUserToResizeRows = false;
             this.dgv_prod_add.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_prod_add.Location = new System.Drawing.Point(16, 23);
+            this.dgv_prod_add.MultiSelect = false;
             this.dgv_prod_add.Name = "dgv_prod_add";
             this.dgv_prod_add.Size = new System.Drawing.Size(742, 162);
             this.dgv_prod_add.TabIndex = 144;
