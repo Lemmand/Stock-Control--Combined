@@ -26,6 +26,7 @@ namespace Stock_Control
             disp_Orders_View();
             DisplayData();
             dgvProducts.RowHeaderMouseClick += new DataGridViewCellMouseEventHandler(DgvProducts_RowHeaderMouseClick);
+            txt_order_id.Text = order_id.ToString();
 
         }
 
@@ -104,7 +105,6 @@ namespace Stock_Control
 
 
                     String query = "DELETE FROM TBL_PO_ITEMS WHERE NUM_POID = " + order_id + " AND NUM_itemID = " + product_id + ";";
-                    MessageBox.Show("" + product_id);
 
                     SqlDataAdapter SDA = new SqlDataAdapter(query, conn);
                     SDA.SelectCommand.ExecuteNonQuery();

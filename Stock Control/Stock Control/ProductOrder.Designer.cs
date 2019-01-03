@@ -44,6 +44,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txt_prod_id = new System.Windows.Forms.TextBox();
+            this.txt_order_id = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductOrder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -116,11 +117,11 @@
             this.label12.AutoSize = true;
             this.label12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(178, 9);
+            this.label12.Location = new System.Drawing.Point(302, 9);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(550, 26);
+            this.label12.Size = new System.Drawing.Size(97, 26);
             this.label12.TabIndex = 94;
-            this.label12.Text = "Please enter Order & Item ID\'s and the appropriate Quantity";
+            this.label12.Text = "Order ID:";
             // 
             // txt_quantity
             // 
@@ -246,12 +247,22 @@
             this.txt_prod_id.Size = new System.Drawing.Size(100, 20);
             this.txt_prod_id.TabIndex = 0;
             // 
+            // txt_order_id
+            // 
+            this.txt_order_id.Enabled = false;
+            this.txt_order_id.Location = new System.Drawing.Point(405, 12);
+            this.txt_order_id.Name = "txt_order_id";
+            this.txt_order_id.ReadOnly = true;
+            this.txt_order_id.Size = new System.Drawing.Size(100, 20);
+            this.txt_order_id.TabIndex = 114;
+            // 
             // ProductOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.OldLace;
             this.ClientSize = new System.Drawing.Size(851, 579);
+            this.Controls.Add(this.txt_order_id);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -263,7 +274,7 @@
             this.Controls.Add(this.label12);
             this.Name = "ProductOrder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ProductOrder";
+            this.Text = "Edit Order";
             this.Load += new System.EventHandler(this.ProductOrder_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductOrder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
@@ -296,5 +307,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox txt_prod_id;
+        private System.Windows.Forms.TextBox txt_order_id;
     }
 }

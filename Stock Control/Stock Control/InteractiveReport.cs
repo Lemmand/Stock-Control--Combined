@@ -71,7 +71,6 @@ namespace Stock_Control
 
                 c = a - b;
 
-                lbl_Difference.Text = Convert.ToString(c);
             }
             catch (Exception)
             {
